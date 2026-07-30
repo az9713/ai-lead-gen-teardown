@@ -1,0 +1,178 @@
+<!doctype html>
+<html lang="en" class="scroll-smooth">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Brooklyn Smiles (design demo) — Gentle dentistry, right around the corner</title>
+<meta name="description" content="Modern, gentle dental care in Brooklyn. Same-week appointments, transparent pricing, and online booking that actually works.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<script src="https://cdn.tailwindcss.com"></script>
+<script>
+tailwind.config = {
+  theme: { extend: {
+    fontFamily: { sans: ['Inter', 'system-ui', 'sans-serif'] },
+    colors: { brand: { 50:'#f0f7fd', 100:'#dcebf7', 200:'#bcd9ef', 300:'#8fc0e3', 400:'#5b9fd2', 500:'#3782bd', 600:'#2668a0', 700:'#205382', 800:'#1f476c', 900:'#1e3d5b' } },
+    keyframes: { floaty: { '0%,100%':{transform:'translateY(0)'}, '50%':{transform:'translateY(-10px)'} } },
+    animation: { floaty: 'floaty 6s ease-in-out infinite' },
+  }},
+}
+</script>
+<style>
+  /* ponytail: one reveal observer instead of a scroll library */
+  .reveal { opacity:0; transform: translateY(24px); transition: opacity .7s ease, transform .7s ease; }
+  .reveal.in { opacity:1; transform:none; }
+  /* ponytail: fixed nav is 65px; keep anchor targets clear of it */
+  section[id] { scroll-margin-top: 8rem; }
+  @media (prefers-reduced-motion: reduce) { .reveal { opacity:1; transform:none; transition:none; } }
+</style>
+</head>
+<body class="font-sans text-brand-900 antialiased">
+
+<!-- NAV -->
+<header class="fixed inset-x-0 top-0 z-50 backdrop-blur bg-white/70 border-b border-brand-100">
+  <!-- Brooklyn Smiles is not a real practice. This banner stays on any public deploy. -->
+  <p class="bg-amber-400 px-6 py-2 text-center text-sm font-medium text-amber-950">
+    Design demo — “Brooklyn Smiles” is a fictional clinic. Contact details and reviews on this page are sample content, not a real business.
+  </p>
+  <nav class="mx-auto flex max-w-6xl items-center justify-between px-6 py-4">
+    <a href="#" class="flex items-center gap-2 font-semibold tracking-tight">
+      <span class="grid h-8 w-8 place-items-center rounded-lg bg-brand-500 text-white">◗</span>
+      Brooklyn Smiles
+    </a>
+    <div class="hidden items-center gap-8 text-sm font-medium text-brand-800 md:flex">
+      <a href="#benefits" class="hover:text-brand-500">Why us</a>
+      <a href="#services" class="hover:text-brand-500">Services</a>
+      <a href="#reviews" class="hover:text-brand-500">Reviews</a>
+      <a href="#book" class="rounded-full bg-brand-600 px-5 py-2 text-white hover:bg-brand-700">Book online</a>
+    </div>
+  </nav>
+</header>
+
+<!-- HERO -->
+<section class="relative flex min-h-screen w-full items-center overflow-hidden bg-brand-100">
+  <video class="absolute inset-0 h-full w-full object-cover" autoplay muted loop playsinline poster="assets/hero-woman.webp">
+    <source src="assets/hero-loop.mp4" type="video/mp4">
+  </video>
+  <div class="absolute inset-0 bg-gradient-to-r from-brand-100 via-brand-100/90 to-brand-100/30"></div>
+
+  <div class="relative mx-auto grid max-w-6xl items-center gap-12 px-6 pt-40 pb-16 md:grid-cols-2">
+    <div>
+      <p class="mb-4 inline-flex items-center gap-2 rounded-full bg-white/80 px-4 py-1.5 text-sm font-medium text-brand-700">
+        <span class="h-2 w-2 rounded-full bg-emerald-500"></span> Accepting new patients this week
+      </p>
+      <h1 class="text-4xl font-bold leading-[1.1] tracking-tight sm:text-5xl lg:text-6xl">
+        Gentle dentistry,<br>right around the corner.
+      </h1>
+      <p class="mt-6 max-w-md text-lg leading-relaxed text-brand-800">
+        Same-week appointments, honest pricing, and a team that makes the chair feel a lot less scary. Park Slope, Brooklyn.
+      </p>
+      <div class="mt-8 flex flex-wrap gap-3">
+        <a href="#book" class="rounded-full bg-brand-600 px-7 py-3.5 font-semibold text-white shadow-lg shadow-brand-600/20 transition hover:-translate-y-0.5 hover:bg-brand-700">Book an appointment</a>
+        <a href="tel:+17185550142" class="rounded-full bg-white px-7 py-3.5 font-semibold text-brand-700 ring-1 ring-brand-200 transition hover:-translate-y-0.5 hover:bg-brand-50">(718) 555-0142</a>
+      </div>
+      <p class="mt-6 text-sm text-brand-700">★★★★★ <span class="font-medium">4.9</span> from 312 neighborhood reviews</p>
+    </div>
+
+    <div class="relative hidden md:block">
+      <img src="assets/hero-woman.webp" alt="Smiling patient in a blue sweater" width="1200" height="1600"
+           class="mx-auto w-full max-w-sm rounded-3xl shadow-2xl shadow-brand-900/20">
+      <div class="animate-floaty absolute -left-6 bottom-10 rounded-2xl bg-white/95 px-5 py-4 shadow-xl">
+        <p class="text-2xl font-bold text-brand-600">Same week</p>
+        <p class="text-sm text-brand-700">average wait for a new patient</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- BENEFITS -->
+<section id="benefits" class="mx-auto max-w-6xl px-6 py-24">
+  <h2 class="reveal max-w-2xl text-3xl font-bold tracking-tight sm:text-4xl">Dentistry that respects your time and your nerves.</h2>
+  <div class="mt-14 grid gap-8 sm:grid-cols-2 lg:grid-cols-3">
+    <div class="reveal rounded-2xl bg-brand-50 p-8">
+      <div class="mb-4 grid h-11 w-11 place-items-center rounded-xl bg-brand-500 text-xl text-white">⏱</div>
+      <h3 class="text-lg font-semibold">Same-week appointments</h3>
+      <p class="mt-2 leading-relaxed text-brand-800">No six-week waitlist. Book online in under a minute and pick a slot that fits around work.</p>
+    </div>
+    <div class="reveal rounded-2xl bg-brand-50 p-8">
+      <div class="mb-4 grid h-11 w-11 place-items-center rounded-xl bg-brand-500 text-xl text-white">◎</div>
+      <h3 class="text-lg font-semibold">Anxiety-friendly care</h3>
+      <p class="mt-2 leading-relaxed text-brand-800">Tell us you're nervous and we'll slow everything down. Numbing before the numbing, always.</p>
+    </div>
+    <div class="reveal rounded-2xl bg-brand-50 p-8">
+      <div class="mb-4 grid h-11 w-11 place-items-center rounded-xl bg-brand-500 text-xl text-white">$</div>
+      <h3 class="text-lg font-semibold">Prices before we start</h3>
+      <p class="mt-2 leading-relaxed text-brand-800">A written estimate and your insurance breakdown before anyone picks up a drill.</p>
+    </div>
+  </div>
+</section>
+
+<!-- SERVICES -->
+<section id="services" class="bg-brand-50 py-24">
+  <div class="mx-auto max-w-6xl px-6">
+    <h2 class="reveal text-3xl font-bold tracking-tight sm:text-4xl">What we do</h2>
+    <div class="mt-12 grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
+      <div class="reveal rounded-xl bg-white p-6 ring-1 ring-brand-100"><h3 class="font-semibold">Checkups &amp; cleanings</h3><p class="mt-1 text-sm text-brand-800">Every six months, in and out in 45 minutes.</p></div>
+      <div class="reveal rounded-xl bg-white p-6 ring-1 ring-brand-100"><h3 class="font-semibold">Emergency visits</h3><p class="mt-1 text-sm text-brand-800">Toothache today? We hold slots open daily.</p></div>
+      <div class="reveal rounded-xl bg-white p-6 ring-1 ring-brand-100"><h3 class="font-semibold">Invisible aligners</h3><p class="mt-1 text-sm text-brand-800">Straighten up without the metal years.</p></div>
+      <div class="reveal rounded-xl bg-white p-6 ring-1 ring-brand-100"><h3 class="font-semibold">Whitening</h3><p class="mt-1 text-sm text-brand-800">One visit, several shades, no sensitivity.</p></div>
+    </div>
+  </div>
+</section>
+
+<!-- SOCIAL PROOF -->
+<section id="reviews" class="mx-auto max-w-6xl px-6 py-24">
+  <h2 class="reveal text-3xl font-bold tracking-tight sm:text-4xl">The neighborhood talks</h2>
+  <div class="mt-12 grid gap-8 md:grid-cols-2">
+    <figure class="reveal rounded-2xl bg-brand-50 p-8">
+      <p class="text-amber-500">★★★★★</p>
+      <blockquote class="mt-4 text-lg leading-relaxed">"I hadn't seen a dentist in nine years because I was terrified. They talked me through every single step. I've been back twice since, on time, no dread."</blockquote>
+      <figcaption class="mt-6 flex items-center gap-3">
+        <img src="assets/patient-1.webp" alt="" width="400" height="400" class="h-11 w-11 rounded-full object-cover">
+        <span class="text-sm font-medium">Maya R. — Park Slope</span>
+      </figcaption>
+    </figure>
+    <figure class="reveal rounded-2xl bg-brand-50 p-8">
+      <p class="text-amber-500">★★★★★</p>
+      <blockquote class="mt-4 text-lg leading-relaxed">"Cracked a molar on a Sunday. Booked online that night, seen Monday morning, and the cost was exactly what the estimate said. Rare."</blockquote>
+      <figcaption class="mt-6 flex items-center gap-3">
+        <img src="assets/patient-2.webp" alt="" width="400" height="400" class="h-11 w-11 rounded-full object-cover">
+        <span class="text-sm font-medium">Devin O. — Gowanus</span>
+      </figcaption>
+    </figure>
+  </div>
+</section>
+
+<!-- CTA -->
+<section id="book" class="bg-brand-600 py-24 text-white">
+  <div class="mx-auto max-w-3xl px-6 text-center">
+    <h2 class="reveal text-3xl font-bold tracking-tight sm:text-4xl">Let's get you booked in.</h2>
+    <p class="reveal mx-auto mt-4 max-w-xl text-lg text-brand-100">Pick a time that suits you. Most new patients are seen within the same week.</p>
+    <form class="reveal mx-auto mt-10 flex max-w-md flex-col gap-3 sm:flex-row" onsubmit="event.preventDefault(); this.nextElementSibling.hidden = false; this.reset();">
+      <label class="sr-only" for="email">Email address</label>
+      <input id="email" type="email" required placeholder="you@email.com"
+             class="w-full rounded-full px-6 py-3.5 text-brand-900 placeholder-brand-400 focus:outline-none focus:ring-4 focus:ring-white/40">
+      <button class="shrink-0 whitespace-nowrap rounded-full bg-white px-7 py-3.5 font-semibold text-brand-700 transition hover:-translate-y-0.5 hover:bg-brand-50">Request a slot</button>
+    </form>
+    <p hidden class="mt-4 text-brand-100">Thanks — we'll be in touch within one business day.</p>
+    <p class="mt-8 text-sm text-brand-200">Or call (718) 555-0142 · 412 5th Ave, Brooklyn, NY 11215</p>
+  </div>
+</section>
+
+<footer class="bg-brand-900 py-10 text-center text-sm text-brand-200">
+  <p>© 2026 Brooklyn Smiles Dental · Mon–Fri 8am–6pm, Sat 9am–2pm<br><span class="text-brand-300">Fictional practice built as a website design demo. Not a real clinic; do not use the phone number or address.</span></p>
+</footer>
+
+<script>
+// ponytail: IntersectionObserver beats pulling in AOS/GSAP for a fade-up
+const io = new IntersectionObserver((entries) => {
+  for (const e of entries) if (e.isIntersecting) { e.target.classList.add('in'); io.unobserve(e.target); }
+}, { threshold: 0.15 });
+document.querySelectorAll('.reveal').forEach((el, i) => {
+  el.style.transitionDelay = `${(i % 3) * 90}ms`;
+  io.observe(el);
+});
+</script>
+</body>
+</html>

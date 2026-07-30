@@ -1,0 +1,470 @@
+[
+ {
+  "name": "Practice A",
+  "domain": "practice-a.example",
+  "linkedin_url": null,
+  "size": "11-50",
+  "signals": [
+   "bare domain fails, only www resolves",
+   "copyright year looks stale"
+  ],
+  "score": 35,
+  "reachable": true,
+  "status": 200,
+  "load_s": 0.31,
+  "final_url": "https://www.practice-a.example/"
+ },
+ {
+  "name": "Practice B",
+  "domain": "practice-b.example",
+  "linkedin_url": null,
+  "size": "2-10",
+  "signals": [
+   "slow first load: 8.0s"
+  ],
+  "score": 30,
+  "reachable": true,
+  "status": 200,
+  "load_s": 7.99,
+  "final_url": "https://www.practice-b.example/"
+ },
+ {
+  "name": "Practice T",
+  "domain": "practice-t.example",
+  "linkedin_url": null,
+  "size": "11-50",
+  "signals": [
+   "sluggish first load: 2.8s",
+   "copyright year looks stale"
+  ],
+  "score": 22,
+  "reachable": true,
+  "status": 200,
+  "load_s": 2.79,
+  "final_url": "https://www.practice-t.example/"
+ },
+ {
+  "name": "Practice Z",
+  "domain": "practice-z.example",
+  "linkedin_url": null,
+  "size": "11-50",
+  "signals": [
+   "sluggish first load: 2.1s",
+   "copyright year looks stale"
+  ],
+  "score": 22,
+  "reachable": true,
+  "status": 200,
+  "load_s": 2.07,
+  "final_url": "https://www.practice-z.example/"
+ },
+ {
+  "name": "Practice M",
+  "domain": "practice-m.example",
+  "linkedin_url": null,
+  "size": "2-10",
+  "signals": [
+   "copyright year looks stale"
+  ],
+  "score": 10,
+  "reachable": true,
+  "status": 200,
+  "load_s": 0.51,
+  "final_url": "https://www.practice-m.example/"
+ },
+ {
+  "name": "Practice P",
+  "domain": "practice-p.example",
+  "linkedin_url": null,
+  "size": "2-10",
+  "signals": [
+   "copyright year looks stale"
+  ],
+  "score": 10,
+  "reachable": true,
+  "status": 200,
+  "load_s": 1.17,
+  "final_url": "https://www.practice-p.example/"
+ },
+ {
+  "name": "Practice Q",
+  "domain": "practice-q.example",
+  "linkedin_url": null,
+  "size": "2-10",
+  "signals": [
+   "copyright year looks stale"
+  ],
+  "score": 10,
+  "reachable": true,
+  "status": 200,
+  "load_s": 0.88,
+  "final_url": "https://www.dentistsouthaustintx.com/"
+ },
+ {
+  "name": "Practice AD",
+  "domain": "practice-ad.example",
+  "linkedin_url": null,
+  "size": "2-10",
+  "signals": [
+   "copyright year looks stale"
+  ],
+  "score": 10,
+  "reachable": true,
+  "status": 200,
+  "load_s": 0.84,
+  "final_url": "https://practice-ad.example/"
+ },
+ {
+  "name": "Practice E",
+  "domain": "practice-e.example",
+  "linkedin_url": null,
+  "size": "2-10",
+  "signals": [
+   "copyright year looks stale"
+  ],
+  "score": 10,
+  "reachable": true,
+  "status": 200,
+  "load_s": 1.38,
+  "final_url": "https://practice-e.example/",
+  "needs_render_check": [
+   "no viewport meta in served HTML"
+  ]
+ },
+ {
+  "name": "Practice AF",
+  "domain": "practice-af.example",
+  "linkedin_url": null,
+  "size": "",
+  "signals": [
+   "copyright year looks stale"
+  ],
+  "score": 10,
+  "reachable": true,
+  "status": 200,
+  "load_s": 0.34,
+  "final_url": "https://practice-af.example/"
+ },
+ {
+  "name": "Practice AG",
+  "domain": "practice-ag.example",
+  "linkedin_url": null,
+  "size": "2-10",
+  "signals": [
+   "copyright year looks stale"
+  ],
+  "score": 10,
+  "reachable": true,
+  "status": 200,
+  "load_s": 0.49,
+  "final_url": "https://www.practice-ag.example/"
+ },
+ {
+  "name": "Practice AH",
+  "domain": "practice-ah.example",
+  "linkedin_url": null,
+  "size": "",
+  "signals": [
+   "copyright year looks stale"
+  ],
+  "score": 10,
+  "reachable": true,
+  "status": 200,
+  "load_s": 0.73,
+  "final_url": "https://practice-ah.example/"
+ },
+ {
+  "name": "Practice AI",
+  "domain": "practice-ai.example",
+  "linkedin_url": null,
+  "size": "2-10",
+  "signals": [
+   "copyright year looks stale"
+  ],
+  "score": 10,
+  "reachable": true,
+  "status": 200,
+  "load_s": 0.6,
+  "final_url": "https://www.practice-ai.example/"
+ },
+ {
+  "name": "Practice I",
+  "domain": "practice-i.example",
+  "linkedin_url": null,
+  "size": "51-200",
+  "signals": [],
+  "score": 0,
+  "reachable": true,
+  "status": 200,
+  "load_s": 1.34,
+  "final_url": "https://practice-i.example/"
+ },
+ {
+  "name": "Practice J",
+  "domain": "practice-j.example",
+  "linkedin_url": null,
+  "size": "51-200",
+  "signals": [],
+  "score": 0,
+  "reachable": true,
+  "status": 200,
+  "load_s": 0.96,
+  "final_url": "https://www.practice-j.example/"
+ },
+ {
+  "name": "Practice K",
+  "domain": "practice-k.example",
+  "linkedin_url": null,
+  "size": "51-200",
+  "signals": [],
+  "score": 0,
+  "reachable": true,
+  "status": 200,
+  "load_s": 0.49,
+  "final_url": "https://practice-k.example/",
+  "needs_render_check": [
+   "no booking link in served HTML"
+  ]
+ },
+ {
+  "name": "Practice L",
+  "domain": "practice-l.example",
+  "linkedin_url": null,
+  "size": "2-10",
+  "signals": [],
+  "score": 0,
+  "reachable": true,
+  "status": 200,
+  "load_s": 0.44,
+  "final_url": "https://practice-l.example/"
+ },
+ {
+  "name": "Practice N",
+  "domain": "practice-n.example",
+  "linkedin_url": null,
+  "size": "2-10",
+  "signals": [],
+  "score": 0,
+  "reachable": true,
+  "status": 200,
+  "load_s": 0.48,
+  "final_url": "https://practice-n.example/"
+ },
+ {
+  "name": "Practice O",
+  "domain": "practice-o.example",
+  "linkedin_url": null,
+  "size": "2-10",
+  "signals": [],
+  "score": 0,
+  "reachable": true,
+  "status": 200,
+  "load_s": 0.57,
+  "final_url": "https://practice-o.example/",
+  "needs_render_check": [
+   "no booking link in served HTML"
+  ]
+ },
+ {
+  "name": "Practice D",
+  "domain": "practice-d.example",
+  "linkedin_url": null,
+  "size": "11-50",
+  "signals": [
+   "HTTP 403 to automated request - INCONCLUSIVE, verify in a browser"
+  ],
+  "score": 0,
+  "reachable": true,
+  "status": 403,
+  "load_s": 0.76,
+  "final_url": "https://practice-d.example/",
+  "inconclusive": true
+ },
+ {
+  "name": "Practice H",
+  "domain": "practice-h.example",
+  "linkedin_url": null,
+  "size": "2-10",
+  "signals": [],
+  "score": 0,
+  "reachable": true,
+  "status": 200,
+  "load_s": 0.39,
+  "final_url": "https://practice-h.example/",
+  "needs_render_check": [
+   "no viewport meta in served HTML",
+   "no booking link in served HTML"
+  ]
+ },
+ {
+  "name": "Practice C",
+  "domain": "practice-c.example",
+  "score": 0,
+  "signals": [
+   "NOT A PROSPECT - Clay's domain is stale. The practice's live site is practice-c-live.example (HTTP 200 in 0.85s), confirmed via the work email alpha@practice-c-live.example."
+  ],
+  "disqualified": true,
+  "linkedin_url": null,
+  "size": "2-10"
+ },
+ {
+  "name": "Practice R",
+  "domain": "practice-r.example",
+  "linkedin_url": null,
+  "size": "2-10",
+  "signals": [],
+  "score": 0,
+  "reachable": true,
+  "status": 200,
+  "load_s": 1.42,
+  "final_url": "https://www.practice-r.example/"
+ },
+ {
+  "name": "Practice S",
+  "domain": "practice-s.example",
+  "linkedin_url": null,
+  "size": "11-50",
+  "signals": [],
+  "score": 0,
+  "reachable": true,
+  "status": 200,
+  "load_s": 0.88,
+  "final_url": "https://www.practice-s.example/"
+ },
+ {
+  "name": "Practice U",
+  "domain": "practice-u.example",
+  "linkedin_url": null,
+  "size": "2-10",
+  "signals": [],
+  "score": 0,
+  "reachable": true,
+  "status": 200,
+  "load_s": 0.57,
+  "final_url": "https://practice-u.example/"
+ },
+ {
+  "name": "Practice V",
+  "domain": "practice-v.example",
+  "linkedin_url": null,
+  "size": "11-50",
+  "signals": [],
+  "score": 0,
+  "reachable": true,
+  "status": 200,
+  "load_s": 0.7,
+  "final_url": "https://www.practice-v.example/"
+ },
+ {
+  "name": "Practice W",
+  "domain": "practice-w.example",
+  "linkedin_url": null,
+  "size": "2-10",
+  "signals": [],
+  "score": 0,
+  "reachable": true,
+  "status": 200,
+  "load_s": 0.65,
+  "final_url": "https://limestonehillsorthodontics.com/"
+ },
+ {
+  "name": "Practice X",
+  "domain": "practice-x.example",
+  "linkedin_url": null,
+  "size": "2-10",
+  "signals": [],
+  "score": 0,
+  "reachable": true,
+  "status": 200,
+  "load_s": 1.1,
+  "final_url": "https://www.practice-x.example/"
+ },
+ {
+  "name": "Practice Y",
+  "domain": "practice-y.example",
+  "linkedin_url": null,
+  "size": "11-50",
+  "signals": [],
+  "score": 0,
+  "reachable": true,
+  "status": 200,
+  "load_s": 0.93,
+  "final_url": "https://practice-y.example/"
+ },
+ {
+  "name": "Practice AA",
+  "domain": "practice-aa.example",
+  "linkedin_url": null,
+  "size": "2-10",
+  "signals": [],
+  "score": 0,
+  "reachable": true,
+  "status": 200,
+  "load_s": 0.8,
+  "final_url": "https://practice-aa.example/"
+ },
+ {
+  "name": "Practice AB",
+  "domain": "practice-ab.example",
+  "linkedin_url": null,
+  "size": "2-10",
+  "signals": [],
+  "score": 0,
+  "reachable": true,
+  "status": 200,
+  "load_s": 0.98,
+  "final_url": "https://www.practice-ab.example/"
+ },
+ {
+  "name": "Practice G",
+  "domain": "practice-g.example",
+  "linkedin_url": null,
+  "size": "2-10",
+  "signals": [],
+  "score": 0,
+  "reachable": true,
+  "status": 200,
+  "load_s": 0.86,
+  "final_url": "https://practice-g.example/"
+ },
+ {
+  "name": "Practice AC",
+  "domain": "practice-ac.example",
+  "linkedin_url": null,
+  "size": "2-10",
+  "signals": [],
+  "score": 0,
+  "reachable": true,
+  "status": 200,
+  "load_s": 0.87,
+  "final_url": "https://www.practice-ac.example/"
+ },
+ {
+  "name": "Practice F",
+  "domain": "practice-f.example",
+  "linkedin_url": null,
+  "size": "11-50",
+  "signals": [],
+  "score": 0,
+  "reachable": true,
+  "status": 200,
+  "load_s": 1.19,
+  "final_url": "https://www.practice-f.example/",
+  "needs_render_check": [
+   "no viewport meta in served HTML",
+   "no booking link in served HTML"
+  ]
+ },
+ {
+  "name": "Practice AE",
+  "domain": "practice-ae.example",
+  "linkedin_url": null,
+  "size": "2-10",
+  "signals": [],
+  "score": 0,
+  "reachable": true,
+  "status": 200,
+  "load_s": 0.79,
+  "final_url": "https://austinrootcanal.blogspot.com/"
+ }
+]

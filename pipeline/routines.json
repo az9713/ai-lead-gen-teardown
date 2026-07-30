@@ -1,0 +1,130 @@
+{
+ "data": [
+  {
+   "id": "function:t_REDACTED",
+   "name": "Company Address",
+   "description": "Use this tool when the user needs the physical headquarters address of a specific company. It returns a formatted mailing address including street, city, state/province, ZIP/postal code, and country.",
+   "source": "managed",
+   "createdBy": null
+  },
+  {
+   "id": "function:t_REDACTED",
+   "name": "Company Job Openings",
+   "description": "Use this tool when the user wants to see what a specific company is currently hiring for. It returns active job postings at a target company, which can surface buying intent, growth signals, and department-level priorities.",
+   "source": "managed",
+   "createdBy": null
+  },
+  {
+   "id": "function:t_REDACTED",
+   "name": "Company Domain",
+   "description": "Use this tool when the user has a company name but needs its website domain. Having the domain unlocks almost all other company-level enrichments in Clay, making this a critical first step when only a company name is available",
+   "source": "managed",
+   "createdBy": null
+  },
+  {
+   "id": "function:t_REDACTED",
+   "name": "Company Employee Count",
+   "description": "Use this tool when the user needs to know how many employees a company has. It returns a current headcount number pulled from multiple data sources, useful for company sizing, ICP qualification, and territory segmentation.",
+   "source": "managed",
+   "createdBy": null
+  },
+  {
+   "id": "function:t_REDACTED",
+   "name": "Company News",
+   "description": "Use this tool when the user wants to find recent news articles, announcements, or press coverage about a specific company. It surfaces timely events that can be used as buying signals, outreach triggers, or account research context.",
+   "source": "managed",
+   "createdBy": null
+  },
+  {
+   "id": "function:t_REDACTED",
+   "name": "Enrich Company",
+   "description": "Use this tool when the user wants to look up detailed information about a specific company. It returns structured firmographic and intelligence data about an organization based on its website domain or LinkedIn URL",
+   "source": "managed",
+   "createdBy": null
+  },
+  {
+   "id": "function:t_REDACTED",
+   "name": "Company Latest Funding",
+   "description": "Use this tool when the user wants to know about a company's most recent funding activity. It returns details on the latest funding round including stage, amount, date, and investors — useful as a buying signal or for account prioritization.",
+   "source": "managed",
+   "createdBy": null
+  },
+  {
+   "id": "function:t_REDACTED",
+   "name": "Company Industry",
+   "description": "Use this tool when the user needs to know what industry or sector a company operates in. It returns a classified industry label — and optionally a subvertical — based on the company's name, domain, or website content.",
+   "source": "managed",
+   "createdBy": null
+  },
+  {
+   "id": "function:t_REDACTED",
+   "name": "Enrich Person",
+   "description": "Use this tool when the user wants to look up detailed professional information about a specific individual. It returns verified contact data, career history, and professional context about a person based on their name and company, LinkedIn URL, or email address.",
+   "source": "managed",
+   "createdBy": null
+  },
+  {
+   "id": "function:t_REDACTED",
+   "name": "Company Revenue (Exact)",
+   "description": "Use this tool when the user needs a specific annual revenue figure for a company. It runs a waterfall across multiple data providers, stopping as soon as a value is found, returning the most accurate revenue number available",
+   "source": "managed",
+   "createdBy": null
+  },
+  {
+   "id": "function:t_REDACTED",
+   "name": "Person Job Title",
+   "description": "Use this tool when the user needs to know a specific person's current job title or role. It returns a person's most up-to-date title based on their LinkedIn profile or enrichment data.",
+   "source": "managed",
+   "createdBy": null
+  },
+  {
+   "id": "function:t_REDACTED",
+   "name": "Find People at Company",
+   "description": "Use this tool when the user wants to find a list of contacts who work at a specific company. It searches across Clay's people data to return individuals matching specified role, seniority, location, or other criteria — building a targeted prospect list from a company.",
+   "source": "managed",
+   "createdBy": null
+  },
+  {
+   "id": "function:t_REDACTED",
+   "name": "Person Full Name",
+   "description": "Use this tool when the user has a LinkedIn URL, email address, or other identifier for a person but is missing their full name. It resolves the identifier to a formatted first and last name",
+   "source": "managed",
+   "createdBy": null
+  },
+  {
+   "id": "function:t_REDACTED",
+   "name": "Enrich Person and Find Contact Details",
+   "description": "Returns verified professional profile, career history, and professional context about a person based on their name and company, LinkedIn URL, or email address. Uses the selected person-related columns plus declared inputs to find and validate a work email and a mobile phone number from available enrichment sources. Outputs standardized values in the “Work Email” and “Mobile Phone” fields after applying validation/quality checks",
+   "source": "managed",
+   "createdBy": null
+  },
+  {
+   "id": "function:t_REDACTED",
+   "name": "Person Location",
+   "description": "Use this tool when the user needs to know where a specific person is based — their city, state/region, and country. It returns a person's current location as reported on their LinkedIn profile or enrichment data.",
+   "source": "managed",
+   "createdBy": null
+  },
+  {
+   "id": "function:t_REDACTED",
+   "name": "Website Technology Stack",
+   "description": "Use this tool when the user wants to know what technologies, tools, or software a company uses on their website. It analyzes the site's source code via BuiltWith to return a full list of detected technologies across categories like CRM, analytics, ecommerce, hosting, marketing, and more.",
+   "source": "managed",
+   "createdBy": null
+  },
+  {
+   "id": "function:t_REDACTED",
+   "name": "Website Traffic",
+   "description": "Uses the provided Company Domain to retrieve the Monthly Website Traffic.",
+   "source": "managed",
+   "createdBy": null
+  },
+  {
+   "id": "function:t_REDACTED",
+   "name": "Work Email",
+   "description": "Use this tool when the user needs a verified work email address for a specific person. It cascades across multiple email providers in sequence — stopping as soon as one returns a valid result — so you only pay for what it finds.",
+   "source": "managed",
+   "createdBy": null
+  }
+ ]
+}

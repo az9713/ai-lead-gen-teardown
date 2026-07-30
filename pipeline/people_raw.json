@@ -1,0 +1,207 @@
+{
+ "data": [
+  {
+   "clay_profile_id": null,
+   "name": "Contact Alpha",
+   "first_name": "Contact",
+   "last_name": "Alpha",
+   "location": {
+    "name": "Austin, Texas, United States",
+    "city": "Austin",
+    "state_or_province": "Texas"
+   },
+   "matched_experiences": [
+    {
+     "company": "Practice C",
+     "title": "Prosthodontist",
+     "location": "Austin, Texas, United States",
+     "start_date": "2021-10",
+     "end_date": ""
+    }
+   ]
+  },
+  {
+   "clay_profile_id": null,
+   "name": "Contact Bravo",
+   "first_name": "Contact",
+   "last_name": "Bravo",
+   "location": {
+    "name": "Springfield, Ohio, United States",
+    "city": "Springfield",
+    "state_or_province": "Ohio"
+   },
+   "matched_experiences": [
+    {
+     "company": "Practice A",
+     "title": "Certified Dental Assistant",
+     "location": "",
+     "start_date": "2018-08",
+     "end_date": ""
+    }
+   ]
+  },
+  {
+   "clay_profile_id": null,
+   "name": "Contact Charlie",
+   "first_name": "Contact",
+   "last_name": "Charlie-Charlie",
+   "location": {
+    "name": "Austin, Texas, United States",
+    "city": "Austin",
+    "state_or_province": "Texas"
+   },
+   "matched_experiences": [
+    {
+     "company": "Practice A",
+     "title": "General Dentist",
+     "location": "5608 Parkcrest Dr Austin, Tx 78731",
+     "start_date": "2018-10",
+     "end_date": ""
+    }
+   ]
+  },
+  {
+   "clay_profile_id": null,
+   "name": "Contact Delta",
+   "first_name": "Contact",
+   "last_name": "Delta",
+   "location": {
+    "name": "Austin, Texas, United States",
+    "city": "Austin",
+    "state_or_province": "Texas"
+   },
+   "matched_experiences": [
+    {
+     "company": "Practice A",
+     "title": "Office Administration",
+     "location": "United States",
+     "start_date": "2024-11",
+     "end_date": ""
+    }
+   ]
+  },
+  {
+   "clay_profile_id": null,
+   "name": "Contact Echo",
+   "first_name": "Contact",
+   "last_name": "Echo",
+   "location": {
+    "name": "Dayton Metropolitan Area, United States",
+    "city": "Dayton",
+    "state_or_province": "Ohio"
+   },
+   "matched_experiences": [
+    {
+     "company": "Practice A",
+     "title": "General Dentist",
+     "location": "Dayton Metropolitan Area",
+     "start_date": "2016-07",
+     "end_date": ""
+    }
+   ]
+  },
+  {
+   "clay_profile_id": null,
+   "name": "Contact Foxtrot",
+   "first_name": "Contact",
+   "last_name": "Foxtrot",
+   "location": {
+    "name": "Xenia, Ohio, United States",
+    "city": "Xenia",
+    "state_or_province": "Ohio"
+   },
+   "matched_experiences": [
+    {
+     "company": "Practice A",
+     "title": "Registered Dental Hygienist",
+     "location": "",
+     "start_date": "",
+     "end_date": ""
+    }
+   ]
+  },
+  {
+   "clay_profile_id": null,
+   "name": "Contact Golf",
+   "first_name": "Contact",
+   "last_name": "Golf",
+   "location": {
+    "name": "Austin, Texas, United States",
+    "city": "Austin",
+    "state_or_province": "Texas"
+   },
+   "matched_experiences": [
+    {
+     "company": "Practice A",
+     "title": "General Dentist",
+     "location": "Austin, Texas, United States",
+     "start_date": "2023-10",
+     "end_date": ""
+    }
+   ]
+  },
+  {
+   "clay_profile_id": null,
+   "name": "Contact Hotel",
+   "first_name": "Contact",
+   "last_name": "Hotel",
+   "location": {
+    "name": "Hayward, California, United States",
+    "city": "Hayward",
+    "state_or_province": "California"
+   },
+   "matched_experiences": [
+    {
+     "company": "Practice A",
+     "title": "Dental Receptionist",
+     "location": "",
+     "start_date": "2022-01",
+     "end_date": ""
+    }
+   ]
+  },
+  {
+   "clay_profile_id": null,
+   "name": "Contact India",
+   "first_name": "Contact",
+   "last_name": "India",
+   "location": {
+    "name": "Belleville, New Jersey, United States",
+    "city": "Belleville",
+    "state_or_province": "New Jersey"
+   },
+   "matched_experiences": [
+    {
+     "company": "Practice A",
+     "title": "Billing Specialist",
+     "location": "",
+     "start_date": "",
+     "end_date": ""
+    }
+   ]
+  },
+  {
+   "clay_profile_id": null,
+   "name": "Contact Juliett",
+   "first_name": "Contact",
+   "last_name": "Juliett",
+   "location": {
+    "name": "Xenia, Ohio, United States",
+    "city": "Xenia",
+    "state_or_province": "Ohio"
+   },
+   "matched_experiences": [
+    {
+     "company": "Practice A",
+     "title": "Office Manager",
+     "location": "",
+     "start_date": "",
+     "end_date": ""
+    }
+   ]
+  }
+ ],
+ "hasMore": false,
+ "sourceType": "people",
+ "exhaustionReason": "no_more_results"
+}
