@@ -10,7 +10,12 @@ are deliberately synthetic: a plausible-sounding fake name could collide with
 a real business, and .example is reserved by RFC 2606 so the domains can never
 resolve to anyone.
 
-Run:  python redact.py        (rewrites pipeline/ from scratch, then self-checks)
+Run:  python redact.py                    (dental-demo/ -> pipeline/)
+      python redact.py SRC OUT            (mountain-view/ -> pipeline-mountain-view/)
+
+Whichever run is being redacted, the alias map is built from *all* of them, so a
+letter identifies one practice across the whole repository and an identifier that
+leaks from one run's files into another's is still caught.
 
 ponytail: string substitution over the finished files, not a re-run of the
 pipeline against anonymised inputs. Upgrade only if a signal ever needs the real
@@ -18,27 +23,38 @@ domain to be re-derived, which would defeat the point.
 """
 import io, json, os, re, sys
 
-SRC = os.path.join(os.path.dirname(os.path.abspath(__file__)), "dental-demo")
-OUT = os.path.join(os.path.dirname(os.path.abspath(__file__)), "pipeline")
+HERE = os.path.dirname(os.path.abspath(__file__))
+SRC = os.path.join(HERE, sys.argv[1] if len(sys.argv) > 1 else "dental-demo")
+OUT = os.path.join(HERE, sys.argv[2] if len(sys.argv) > 2 else "pipeline")
 
-# Files copied through the redactor. Everything else in dental-demo/ (index.html,
-# assets/, vercel.json) carries no prospect data and is committed as-is.
+# Files copied through the redactor, if present -- no one run produces all of
+# them. Everything else in a source directory (index.html, assets/, vercel.json,
+# empty .err files) carries no prospect data and is committed as-is or not at all.
 TEXT_FILES = ["audit.py", "VERIFICATION.md", "draft-emails.md", "prospects.csv",
               "audit_results.json", "prospects_raw.json", "people_raw.json",
               "email_in.jsonl", "email_in2.jsonl",
-              "email_results.jsonl", "email_results2.jsonl", "routines.json"]
+              "email_results.jsonl", "email_results2.jsonl", "routines.json",
+              "search.json", "search2.json", "people_search.json"]
 
 # Story-critical entities get stable letters so the write-ups can refer to
 # "Practice A" and mean the same practice every time. The mapping itself is an
 # identifier, so it lives in a gitignored file rather than in this source.
 # Without that file the labels are assigned purely in file order and the output
 # is still fully anonymous - only the letters move.
-KEYS = os.path.join(os.path.dirname(os.path.abspath(__file__)), "redaction-keys.json")
+KEYS = os.path.join(HERE, "redaction-keys.json")
 _keys = json.load(io.open(KEYS, encoding="utf-8")) if os.path.exists(KEYS) else {}
 PINNED = _keys.get("pinned", {})
 # Domains that appear in the write-ups but not in the search results, e.g. a
 # practice's real site discovered through its own work-email domain.
 EXTRA_DOMAINS = _keys.get("extra", {})
+# Name spellings the prose uses that the data platform does not: a write-up says
+# "Ann Lee, PhD DDS" where the record says "ANN LEE, PHD, DDS". The real pairs
+# live in the keys file, because a worked example here would be the identifier.
+# The token self-check below is what finds these; this is where they get fixed.
+NAME_OVERRIDES = _keys.get("names", {})
+
+# The only hosts allowed to survive in the output: ours, and deliberately so.
+PUBLIC_HOSTS = {"dental-demo-chi-rust.vercel.app"}
 
 NATO = ["Alpha", "Bravo", "Charlie", "Delta", "Echo", "Foxtrot", "Golf",
         "Hotel", "India", "Juliett", "Kilo", "Lima", "Mike", "November"]
@@ -55,10 +71,28 @@ def letters():
 
 
 def build_map():
-    """Return (replacements, checks) - what to substitute, and what must vanish."""
-    companies = json.load(io.open(f"{SRC}/prospects_raw.json", encoding="utf-8"))["data"]
-    people_doc = json.load(io.open(f"{SRC}/people_raw.json", encoding="utf-8"))
-    people = people_doc["data"] if isinstance(people_doc, dict) else people_doc
+    """Return (replacements, checks) - what to substitute, and what must vanish.
+
+    Built from *every* run on this machine, not just the one being redacted. The
+    runs share files: audit.py was carried from the first city to the second and
+    still names practices from the first in its comments, and only a map that
+    spans both catches that.
+    """
+    companies, people = [], []
+    for run in sorted(os.listdir(HERE)):
+        raw = os.path.join(HERE, run, "prospects_raw.json")
+        if not os.path.exists(raw):
+            continue
+        rows = json.load(io.open(raw, encoding="utf-8"))["data"]
+        # This script's own output looks exactly like an input. Feeding it back
+        # would hand fresh letters to already-aliased practices.
+        if any((r.get("domain") or "").endswith(".example") for r in rows):
+            continue
+        companies += rows
+        ppl = os.path.join(HERE, run, "people_raw.json")
+        if os.path.exists(ppl):
+            doc = json.load(io.open(ppl, encoding="utf-8"))
+            people += doc["data"] if isinstance(doc, dict) else doc
 
     # --- domains -> practice-x.example -------------------------------------
     seen, order = set(), []
@@ -106,13 +140,21 @@ def build_map():
     for p in people:
         n = p.get("name")
         if n and n not in person_alias:
-            person_alias[n] = f"Contact {NATO[i % len(NATO)]}"
+            # Past the end of the alphabet, count round again rather than wrap -
+            # two real people sharing one alias would silently merge them.
+            lap = "" if i < len(NATO) else str(i // len(NATO) + 1)
+            person_alias[n] = f"Contact {NATO[i % len(NATO)]}{lap}"
             i += 1
 
     rep = {}
     for d, tag in dom_alias.items():
         rep[d] = f"practice-{tag.lower()}.example"
     rep.update(name_alias)
+    for variant, canonical in NAME_OVERRIDES.items():
+        # Keyed by the spelling the record uses, so one entry survives a rerun
+        # that reshuffles the letters.
+        if canonical in name_alias:
+            rep[variant] = name_alias[canonical]
 
     # Last names appear alone ("Dr. <surname>," in an email greeting) and buried
     # inside routine-run ids. Both need the same alias or the drafts stop making
@@ -135,6 +177,10 @@ def build_map():
     checks = list(dom_alias) + list(name_alias) + list(person_alias)
     for real in person_alias:           # a lone name part is still an identifier
         checks += re.findall(r"[A-Za-z]{3,}", real)
+    # A practice's surname-shaped token is an identifier even where the practice
+    # is only half-named: a lone surname still points at the practice domain
+    # built from it.
+    checks += list(NAME_OVERRIDES)
     return rep, sorted(set(checks))
 
 
@@ -157,6 +203,8 @@ def redact(text, rep):
     # of routine *names* is the useful part for a reader, so keep those.
     text = re.sub(r"(function|workflow):t_[A-Za-z0-9]+",
                   lambda m: m.group(1) + ":t_REDACTED", text)
+    # Same for saved-search ids, which are handles onto one workspace's results.
+    text = re.sub(r"search_[A-Za-z0-9]+", "search_REDACTED", text)
     # Tidy the mailboxes the substitutions leave mixed-case.
     return re.sub(r"[\w.+-]+(?=@practice-[\w-]+\.example)",
                   lambda m: m.group(0).lower(), text)
@@ -191,6 +239,8 @@ def main():
         os.unlink(os.path.join(OUT, stale))
 
     for name in TEXT_FILES:
+        if not os.path.exists(f"{SRC}/{name}"):
+            continue
         raw = io.open(f"{SRC}/{name}", encoding="utf-8").read()
         out = redact(raw, rep)
         if name.endswith(".json"):
@@ -198,7 +248,7 @@ def main():
         io.open(f"{OUT}/{name}", "w", encoding="utf-8", newline="\n").write(out)
         print(f"  {name:<22} {len(raw):>7} -> {len(out):>7} bytes")
 
-    # Self-check: no real identifier may survive anywhere in pipeline/.
+    # Self-check: no real identifier may survive anywhere in the output.
     # This is the whole safety guarantee, so it fails loudly rather than warns.
     leaked = []
     for name in sorted(os.listdir(OUT)):
@@ -210,13 +260,22 @@ def main():
         for addr in re.findall(r"[\w.+-]+@[\w.-]+\.\w+", body):
             if not addr.endswith(".example"):
                 leaked.append((name, addr))
+        # A practice's own site is not the only domain it owns. Three Austin
+        # practices redirect to a second domain that never appears in the
+        # `domain` field, so no alias covered it and it published intact. Trust
+        # nothing that is not either a .example alias or knowingly public.
+        for host in re.findall(r"https?://([\w.-]+)", body):
+            host = re.sub(r"^www\.", "", host).rstrip(".")
+            if host and not host.endswith(".example") and host not in PUBLIC_HOSTS:
+                leaked.append((name, host))
         for url in re.findall(r"linkedin\.com/\S+", body):
             leaked.append((name, url))
     if leaked:
         for n, t in leaked:
             print(f"LEAK  {n}: {t}", file=sys.stderr)
         sys.exit(f"\n{len(leaked)} real identifier(s) survived redaction - not safe to commit")
-    print(f"\nOK - {len(checks)} real identifiers checked, none present in pipeline/")
+    print(f"\nOK - {len(checks)} real identifiers checked, "
+          f"none present in {os.path.basename(OUT)}/")
 
 
 if __name__ == "__main__":

@@ -98,7 +98,7 @@
   "reachable": true,
   "status": 200,
   "load_s": 0.88,
-  "final_url": "https://www.dentistsouthaustintx.com/"
+  "final_url": "https://www.practice-q-live.example/"
  },
  {
   "name": "Practice AD",
@@ -365,7 +365,7 @@
   "reachable": true,
   "status": 200,
   "load_s": 0.65,
-  "final_url": "https://limestonehillsorthodontics.com/"
+  "final_url": "https://practice-w-live.example/"
  },
  {
   "name": "Practice X",
@@ -465,6 +465,6 @@
   "reachable": true,
   "status": 200,
   "load_s": 0.79,
-  "final_url": "https://austinrootcanal.blogspot.com/"
+  "final_url": "https://practice-ae-live.example/"
  }
 ]
