@@ -43,6 +43,7 @@ non-negotiable — see [the last section](#two-things-worth-knowing-before-you-c
 | The whole story, written for someone new to lead gen | **[`JOURNEY.md`](JOURNEY.md)** |
 | The finished deliverable — the two cold emails | [`pipeline/draft-emails.md`](pipeline/draft-emails.md) |
 | The most useful file here — why 18 of 20 leads were fake | [`pipeline/VERIFICATION.md`](pipeline/VERIFICATION.md) |
+| How a business becomes a lead — the scoring and the gates | **[`RUBRIC.md`](RUBRIC.md)** |
 | The scanner, with a comment on every guard and why it exists | [`pipeline/audit.py`](pipeline/audit.py) |
 | The demo website that acts as the sales asset | [`dental-demo/index.html`](dental-demo/index.html) — live at **https://az9713.github.io/ai-lead-gen-teardown/dental-demo/** |
 
@@ -160,6 +161,7 @@ pipeline/             The lead-gen run, anonymised (see "Redaction" below)
 
 redact.py             Generates pipeline/ from the private originals
 JOURNEY.md            The full write-up: every phase, every wrong turn
+RUBRIC.md             Lead selection: the score, the gates, the judgment calls
 index.html            Redirect, so the Pages root lands on the demo site
 preview.jpg           Screenshot of the live page, for this README
 ```

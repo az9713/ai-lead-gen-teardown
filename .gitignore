@@ -36,3 +36,10 @@ redaction-keys.json
 docs/
 
 __pycache__/
+
+# Screenshots of Clay account pages pasted in during review.
+clay_usage.jpg
+
+# Second-city run and the claymation ad - not reviewed/approved for publication yet.
+mountain-view/
+claymation-ad/
