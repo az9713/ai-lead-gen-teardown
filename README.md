@@ -30,8 +30,8 @@ about four minutes. **Click the image to open it.**
 
 [![The Brooklyn Smiles demo site: an amber banner declaring it a fictional clinic, a "Gentle dentistry, right around the corner" hero over a looping video, and a laughing patient on a calm blue background](preview.jpg)](https://az9713.github.io/ai-lead-gen-teardown/dental-demo/)
 
-> **GitHub Pages:** https://az9713.github.io/ai-lead-gen-teardown/dental-demo/
-> **Vercel (the URL in the drafts):** https://dental-demo-chi-rust.vercel.app
+- **GitHub Pages** — https://az9713.github.io/ai-lead-gen-teardown/dental-demo/
+- **Vercel**, the URL that appears in the drafts — https://dental-demo-chi-rust.vercel.app
 
 Both serve the same file. The amber banner across the top is deliberate and
 non-negotiable — see [the last section](#two-things-worth-knowing-before-you-copy-this).
