@@ -147,6 +147,20 @@ rate limiting as the prospect's fault.
    is the only tool in the stack that sees what a customer sees, and it settled
    every disputed signal in both runs.
 
+Steps 1 and 2 are now a script — [`verify.py`](verify.py) — which does the three
+serial fetches and writes curl's own output to `verification-raw.txt`, carried
+into the published copy by `redact.py` with the domains aliased and the timings
+untouched. It exists because of an honest gap: both runs published conclusions
+like "TTFB 5.40 / 5.30 / 8.48s" with no way for a reader to see the output behind
+them. Anything measured from here on ships with its receipts. The Austin and
+mid-Peninsula numbers predate it and remain summaries.
+
+The script makes exactly one judgement, and refuses the email in three of its
+four outcomes: `NOT SLOW` if any run came back under 1.5s, `NETWORK, NOT SERVER`
+if connect time was also high, `INCONCLUSIVE` if a fetch reported nothing, and
+`SERVER-SIDE SLOW` only when time-to-first-byte stayed high across all three runs
+while connect stayed low.
+
 This layer is where the attrition happens: **18 of 20 flagged prospects died
 here** in the first run, and **5 of 6** in the second. Two runs, two cities, and
 the scanner has yet to be right more than about a tenth of the time. That ratio is

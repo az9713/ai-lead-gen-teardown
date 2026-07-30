@@ -144,7 +144,8 @@ stale copyright year, which is not a business problem and not worth an email.
 ```
 dental-demo/          The sales asset: a single-file demo dental clinic site
   index.html            Tailwind via CDN, Inter, no build step, one file
-  assets/               AI-generated: a 5s looping video + 3 stills (179 KB total)
+  assets/               AI-generated: a 5s looping video + 3 stills
+    provenance.json       Every prompt, model, job id and credit charge behind them
   vercel.json           The entire deploy config
 
 pipeline/             The lead-gen run, anonymised (see "Redaction" below)
@@ -166,6 +167,7 @@ pipeline-mountain-view/   A second run against the mid-Peninsula, same shape,
                           all — worth reading before you pick a city.
 
 redact.py             Generates both pipeline directories from the originals
+verify.py             Serial re-check of a signal, keeping curl's raw output
 JOURNEY.md            The full write-up: every phase, every wrong turn
 RUBRIC.md             Lead selection: the score, the gates, the judgment calls
 index.html            Redirect, so the Pages root lands on the demo site
@@ -178,7 +180,10 @@ preview.jpg           Screenshot of the live page, for this README
   site, wrote the scanner, drove the other tools, and did the verification.
 - **[Higgsfield](https://higgsfield.ai)** — AI image and video generation. Made
   the hero video and three photographs for the demo site. Cost: 7.5 credits for
-  the 5-second video, on a 102-credit starter plan.
+  the 5-second video, on a 102.14-credit starter plan; the stills were free at
+  that tier. The exact prompts, model ids, job ids and timings are recorded in
+  [`dental-demo/assets/provenance.json`](dental-demo/assets/provenance.json), so
+  the visual identity is reproducible rather than merely described.
 - **[Clay](https://www.clay.com)** — B2B data. Supplied the company list, the
   people at those companies, and the verified work emails. Free tier: 50 results
   per search, 100 searches per month.
@@ -230,6 +235,8 @@ source video — and because the method is uninterpretable without them.
 ```bash
 python redact.py            # regenerate pipeline/ from the originals + self-check
 python redact.py mountain-view pipeline-mountain-view      # the second run
+python verify.py --self-check                # prove verify.py's logic, no network
+python verify.py RUN_DIR domain.example      # 3 serial fetches + raw evidence file
 cd dental-demo && python -m http.server 8899    # preview the demo site
 cd dental-demo && vercel deploy --prod --yes    # redeploy it
 ```

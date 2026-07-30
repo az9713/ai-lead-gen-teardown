@@ -144,18 +144,32 @@ rendered — a small scheduling habit that saves real time.
 Four jobs were submitted from the brief in the source video: a looping video of
 tiny workers in blue polishing a giant tooth, a cutout of a woman in a blue
 sweater laughing, and two friendly patient headshots, all on the same calm blue
-so they read as one brand. The first attempt returned an HTTP 502 from
-Higgsfield's endpoint — a retryable server-side error, not a bad prompt — and
-succeeded on retry roughly a minute later. The three stills finished first; the
-5-second video cost **7.5 credits** out of a 102-credit starter balance and
-finished a few minutes later.
+so they read as one brand. The first call returned an HTTP 502 — worth being
+precise about, because the detail matters for anyone debugging one: it came from
+Cloudflare in front of the MCP proxy, on the *balance check*, before a single
+prompt had been submitted. A retryable transport error, not the image model
+rejecting anything. It succeeded 37 seconds later with the request unchanged,
+which is the argument for reading the error body before editing your prompt.
+
+The three stills finished first, in about 40 seconds each; the 5-second video was
+priced with a preflight call at **7.5 credits** out of a 102.14-credit starter
+balance and landed about 65 seconds after it was queued. The stills cost nothing
+at that tier. Every prompt, model id and job id is recorded in
+[`dental-demo/assets/provenance.json`](dental-demo/assets/provenance.json).
 
 Then the unglamorous part that most write-ups skip. The raw assets totalled
-**16.9 MB**. Compressed with ImageMagick to WebP, they came to **179 KB** —
-about a 95× reduction with no visible quality loss at the sizes used. This is not
-housekeeping. The entire sales pitch of this campaign is *your website is slow*.
-Arriving on a demo site that takes six seconds to load would end the conversation
-before it started.
+**16.9 MB**. The three stills, converted to WebP with ImageMagick, came to
+**179 KB for all three** — with no visible quality loss at the sizes used. This is
+not housekeeping. The entire sales pitch of this campaign is *your website is
+slow*. Arriving on a demo site that takes six seconds to load would end the
+conversation before it started.
+
+One honest correction, since that 179 KB figure gets quoted as if it were the
+whole page: it is the stills only. `hero-loop.mp4` is **3.0 MB** and was used as
+delivered, so the assets directory is 3.18 MB. The video autoplays muted behind a
+poster image, so it never blocks first paint — but it is fetched eagerly, and on
+a slow connection that is 3 MB nobody asked for. It is the obvious next
+optimisation on a site whose pitch is page speed.
 
 What Higgsfield buys a solo operator is worth stating plainly: a coherent visual
 identity, made to order, in minutes, for pennies. The traditional alternatives

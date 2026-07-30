@@ -34,7 +34,10 @@ TEXT_FILES = ["audit.py", "VERIFICATION.md", "draft-emails.md", "prospects.csv",
               "audit_results.json", "prospects_raw.json", "people_raw.json",
               "email_in.jsonl", "email_in2.jsonl",
               "email_results.jsonl", "email_results2.jsonl", "routines.json",
-              "search.json", "search2.json", "people_search.json"]
+              "search.json", "search2.json", "people_search.json",
+              # Raw curl output from verify.py. Domains get aliased like
+              # everywhere else; the timings are the evidence and stay verbatim.
+              "verification-raw.txt"]
 
 # Story-critical entities get stable letters so the write-ups can refer to
 # "Practice A" and mean the same practice every time. The mapping itself is an

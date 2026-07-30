@@ -1,0 +1,94 @@
+{
+ "_comment": [
+  "How the four media files in this directory were made. Recovered from the",
+  "session transcript, not retyped from memory: every prompt below is the exact",
+  "string sent to the API, and every id is the generation id it returned.",
+  "Delivery URLs are deliberately omitted - they carry an account identifier in",
+  "the path. The files themselves are committed here, which is the artifact that",
+  "matters."
+ ],
+ "service": "Higgsfield (https://higgsfield.ai), via MCP",
+ "run_date": "2026-07-30",
+ "account": {
+  "plan": "starter",
+  "credits_before": 102.14,
+  "credits_after_approx": 94.6,
+  "charged": 7.5,
+  "note": "Only the video is billed. The three stills cost nothing on this plan, which is why the cost table lists 7.5 credits for four assets."
+ },
+ "assets": [
+  {
+   "file": "hero-woman.webp",
+   "generation_id": "74caba27-2eef-4112-a929-c2d6786ee864",
+   "model_requested": "soul_2",
+   "model_used": "text2image_soul_v2",
+   "aspect_ratio": "3:4",
+   "quality": "2k",
+   "quality_note": "not requested; the API defaulted it and said so in an `adjustments` field",
+   "queued": "2026-07-30T13:43:56Z",
+   "completed_by": "2026-07-30T13:44:32Z",
+   "prompt": "Editorial portrait of a happy woman in her early 30s wearing a soft calm-blue knit sweater, laughing warmly with genuine joy, looking slightly off-camera. Clean flat calm-blue studio background (#DCEBF7), even soft diffused lighting, no harsh shadows. Bright, friendly, modern healthcare brand photography. Sharp focus, natural skin texture, no text."
+  },
+  {
+   "file": "patient-1.webp",
+   "generation_id": "b2098f8b-0de0-4aa7-a1b5-7308154cd02b",
+   "model_requested": "soul_2",
+   "model_used": "text2image_soul_v2",
+   "aspect_ratio": "1:1",
+   "quality": "2k",
+   "queued": "2026-07-30T13:44:03Z",
+   "completed_by": "2026-07-30T13:44:39Z",
+   "prompt": "Friendly dental patient headshot, warm natural smile showing healthy teeth, person in casual calm-blue clothing, flat calm-blue studio background (#DCEBF7), soft even lighting, modern clean healthcare brand photography, sharp focus, natural skin texture, no text."
+  },
+  {
+   "file": "patient-2.webp",
+   "generation_id": "e1af5d07-320e-48a2-968e-7d4cd90e78f3",
+   "model_requested": "soul_2",
+   "model_used": "text2image_soul_v2",
+   "aspect_ratio": "1:1",
+   "quality": "2k",
+   "queued": "2026-07-30T13:44:03Z",
+   "completed_by": "2026-07-30T13:44:46Z",
+   "prompt_note": "same call as patient-1.webp, with count=2 - one request, two generations",
+   "prompt": "Friendly dental patient headshot, warm natural smile showing healthy teeth, person in casual calm-blue clothing, flat calm-blue studio background (#DCEBF7), soft even lighting, modern clean healthcare brand photography, sharp focus, natural skin texture, no text."
+  },
+  {
+   "file": "hero-loop.mp4",
+   "generation_id": "51a2f9e1-d9ac-4fd4-a26c-e8bbf40655da",
+   "model_requested": "kling3_0_turbo",
+   "model_used": "kling3_0_turbo",
+   "aspect_ratio": "16:9",
+   "duration_s": 5,
+   "cost_credits": 7.5,
+   "cost_note": "priced with a get_cost preflight call before committing to the render",
+   "queued": "2026-07-30T13:44:16Z",
+   "completed_by": "2026-07-30T13:45:21Z",
+   "prompt": "Whimsical miniature scene: tiny workers in blue overalls and hard hats polishing a giant pearly-white molar tooth, buffing it with cloths and small polishers until it gleams. Calm soft blue background, clean playful claymation-adjacent style, soft studio lighting, gentle continuous looping motion, no text."
+  }
+ ],
+ "what_went_wrong": {
+  "error": "HTTP 502, retryable, retry_after 60s",
+  "when": "2026-07-30T13:42:57Z, on the balance check - before any generation was submitted",
+  "origin": "Cloudflare, zone mcp-proxy.anthropic.com",
+  "note": "Worth being precise about: this was the MCP transport in front of the service, not the image model rejecting a prompt. It succeeded ~37 seconds later with no change to the request. A retryable 5xx on a metered API is not a reason to start editing prompts."
+ },
+ "post_processing": {
+  "tool": "ImageMagick",
+  "applies_to": "the three stills only",
+  "raw_total": "16.9 MB, as delivered",
+  "stills_final_bytes": 178658,
+  "stills_final": "179 KB for all three, measured on disk",
+  "video_final_bytes": 3004297,
+  "video_final": "3.0 MB, used as delivered - not re-encoded",
+  "note": [
+   "The widely-quoted '179 KB' is the three WebP stills, not the whole",
+   "directory: with the video the assets are 3.18 MB. The video autoplays",
+   "muted behind a poster (hero-woman.webp), so the poster paints while the",
+   "video streams and nothing render-blocks - but it is still fetched",
+   "eagerly, with no preload=none. On a slow connection that is 3 MB the",
+   "visitor did not ask for, and it is the obvious next optimisation.",
+   "This step is not housekeeping. The campaign's pitch is 'your website is",
+   "slow', so a demo site that arrives slowly ends the conversation."
+  ]
+ }
+}
