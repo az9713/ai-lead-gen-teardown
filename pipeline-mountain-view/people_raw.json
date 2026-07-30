@@ -1,0 +1,67 @@
+{
+ "data": [
+  {
+   "clay_profile_id": null,
+   "name": "Contact Kilo",
+   "first_name": "Contact",
+   "last_name": "Kilo",
+   "location": {
+    "name": "Los Angeles, California, United States",
+    "city": "Los Angeles",
+    "state_or_province": "California"
+   },
+   "matched_experiences": [
+    {
+     "company": "Practice MV-H",
+     "title": "Observer - Endodontics",
+     "location": "Palo Alto, California, United States",
+     "start_date": "2024-12",
+     "end_date": "2024-12"
+    }
+   ]
+  },
+  {
+   "clay_profile_id": null,
+   "name": "Contact Lima",
+   "first_name": "Contact",
+   "last_name": "Lima",
+   "location": {
+    "name": "Palo Alto, California, United States",
+    "city": "Palo Alto",
+    "state_or_province": "California"
+   },
+   "matched_experiences": [
+    {
+     "company": "Practice MV-H",
+     "title": "Diplomate, American Board of Endodontics",
+     "location": "",
+     "start_date": "1998-05",
+     "end_date": ""
+    }
+   ]
+  },
+  {
+   "clay_profile_id": null,
+   "name": "Contact Mike",
+   "first_name": "Contact",
+   "last_name": "Mike",
+   "location": {
+    "name": "Palo Alto, California, United States",
+    "city": "Palo Alto",
+    "state_or_province": "California"
+   },
+   "matched_experiences": [
+    {
+     "company": "Practice MV-H",
+     "title": "Dental Assistant",
+     "location": "Palo Alto, California, United States",
+     "start_date": "2022-01",
+     "end_date": ""
+    }
+   ]
+  }
+ ],
+ "hasMore": false,
+ "sourceType": "people",
+ "exhaustionReason": "no_more_results"
+}

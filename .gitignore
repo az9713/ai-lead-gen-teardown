@@ -40,6 +40,10 @@ __pycache__/
 # Screenshots of Clay account pages pasted in during review.
 clay_usage.jpg
 
-# Second-city run and the claymation ad - not reviewed/approved for publication yet.
+# Originals of the second-city run. Same rule as dental-demo/: the real
+# practices stay here, and only the anonymised copies in pipeline-mountain-view/
+# are published.
 mountain-view/
+
+# The claymation ad - not reviewed/approved for publication yet.
 claymation-ad/

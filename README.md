@@ -159,7 +159,13 @@ pipeline/             The lead-gen run, anonymised (see "Redaction" below)
   VERIFICATION.md       Every signal checked by hand, and the 6 ways it lied
   draft-emails.md       The deliverable: 2 drafts, plus "not sent, and why"
 
-redact.py             Generates pipeline/ from the private originals
+pipeline-mountain-view/   A second run against the mid-Peninsula, same shape,
+                          anonymised the same way. 12 practices, 6 flagged,
+                          1 real. Its VERIFICATION.md opens with the finding
+                          that Clay has no dentists tagged in Mountain View at
+                          all — worth reading before you pick a city.
+
+redact.py             Generates both pipeline directories from the originals
 JOURNEY.md            The full write-up: every phase, every wrong turn
 RUBRIC.md             Lead selection: the score, the gates, the judgment calls
 index.html            Redirect, so the Pages root lands on the demo site
@@ -197,23 +203,33 @@ judgments about identifiable small businesses on the open web, so:
 - Marketing descriptions, LinkedIn URLs, platform record IDs and workspace-scoped
   routine IDs are stripped.
 
-`redact.py` does this and then **fails loudly** if any of the 127 real
-identifiers survives anywhere in `pipeline/`. The unredacted originals stay on
+`redact.py` does this and then **fails loudly** if any of the 182 real
+identifiers survives anywhere in its output, or if any hostname that is not a
+`.example` alias does. That last check exists because it caught three real
+domains that had already been published here: a practice's listed domain is not
+the only one it owns, and three Austin sites redirect to a second domain that
+never appears in the data as a domain at all.
+
+Practices from the second run are lettered `Practice MV-A` onwards, so a letter
+means one practice across the whole repository rather than one per directory.
+
+The unredacted originals stay on
 the machine that produced them and are excluded by `.gitignore`, as is
 `redaction-keys.json` — the alias mapping is itself an identifier, so it is not
 published either. Without that file the script still runs and still anonymises
 everything; only which practice gets which letter changes.
 
-One thing redaction does not hide: the run targeted dentists in Austin, Texas,
-and the measurements are real. Someone determined enough could re-run a similar
-search and guess at the mapping. The city is kept because it is already public —
-it is the demo city from the source video — and because the method is
-uninterpretable without it.
+One thing redaction does not hide: the runs targeted dentists in Austin, Texas
+and on the mid-Peninsula in California, and the measurements are real. Someone
+determined enough could re-run a similar search and guess at the mapping. The
+cities are kept because Austin is already public — it is the demo city from the
+source video — and because the method is uninterpretable without them.
 
 ## Reproducing this
 
 ```bash
 python redact.py            # regenerate pipeline/ from the originals + self-check
+python redact.py mountain-view pipeline-mountain-view      # the second run
 cd dental-demo && python -m http.server 8899    # preview the demo site
 cd dental-demo && vercel deploy --prod --yes    # redeploy it
 ```

@@ -1,0 +1,13 @@
+name,domain,score,status,load_s,signals,needs_render_check,inconclusive
+"Practice MV-L",practice-mv-l.example,40,200,3.29,slow first load: 3.3s; copyright year looks stale,,
+Practice MV-H,practice-mv-h.example,30,200,9.45,slow first load: 9.4s,no booking link in served HTML,
+Practice MV-E,practice-mv-e.example,22,200,2.1,sluggish first load: 2.1s; copyright year looks stale,,
+Practice MV-B,practice-mv-b.example,12,200,2.47,sluggish first load: 2.5s,,
+Practice MV-D,practice-mv-d.example,10,200,0.85,copyright year looks stale,,
+"Practice MV-K",practice-mv-k.example,10,200,0.23,copyright year looks stale,,
+Practice MV-A,practice-mv-a.example,0,200,0.97,,,
+Practice MV-C,practice-mv-c.example,0,200,0.77,,,
+Practice MV-F,practice-mv-f.example,0,403,0.31,"HTTP 403 to automated request - INCONCLUSIVE, verify in a browser",,True
+Practice MV-G,practice-mv-g.example,0,200,1.0,,,
+Practice MV-I,practice-mv-i.example,0,200,0.61,,,
+Practice MV-J,practice-mv-j.example,0,200,0.46,,,

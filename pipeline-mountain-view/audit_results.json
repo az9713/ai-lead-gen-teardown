@@ -1,0 +1,166 @@
+[
+ {
+  "name": "Practice MV-L",
+  "domain": "practice-mv-l.example",
+  "linkedin_url": null,
+  "size": "2-10",
+  "signals": [
+   "slow first load: 3.3s",
+   "copyright year looks stale"
+  ],
+  "score": 40,
+  "reachable": true,
+  "status": 200,
+  "load_s": 3.29,
+  "final_url": "https://www.practice-mv-l.example/"
+ },
+ {
+  "name": "Practice MV-H",
+  "domain": "practice-mv-h.example",
+  "linkedin_url": null,
+  "size": "",
+  "signals": [
+   "slow first load: 9.4s"
+  ],
+  "score": 30,
+  "reachable": true,
+  "status": 200,
+  "load_s": 9.45,
+  "final_url": "https://www.practice-mv-h.example/",
+  "needs_render_check": [
+   "no booking link in served HTML"
+  ]
+ },
+ {
+  "name": "Practice MV-E",
+  "domain": "practice-mv-e.example",
+  "linkedin_url": null,
+  "size": "2-10",
+  "signals": [
+   "sluggish first load: 2.1s",
+   "copyright year looks stale"
+  ],
+  "score": 22,
+  "reachable": true,
+  "status": 200,
+  "load_s": 2.1,
+  "final_url": "https://www.practice-mv-e.example/"
+ },
+ {
+  "name": "Practice MV-B",
+  "domain": "practice-mv-b.example",
+  "linkedin_url": null,
+  "size": "2-10",
+  "signals": [
+   "sluggish first load: 2.5s"
+  ],
+  "score": 12,
+  "reachable": true,
+  "status": 200,
+  "load_s": 2.47,
+  "final_url": "https://www.practice-mv-b.example/"
+ },
+ {
+  "name": "Practice MV-D",
+  "domain": "practice-mv-d.example",
+  "linkedin_url": null,
+  "size": "11-50",
+  "signals": [
+   "copyright year looks stale"
+  ],
+  "score": 10,
+  "reachable": true,
+  "status": 200,
+  "load_s": 0.85,
+  "final_url": "https://www.practice-mv-d.example/"
+ },
+ {
+  "name": "Practice MV-K",
+  "domain": "practice-mv-k.example",
+  "linkedin_url": null,
+  "size": "2-10",
+  "signals": [
+   "copyright year looks stale"
+  ],
+  "score": 10,
+  "reachable": true,
+  "status": 200,
+  "load_s": 0.23,
+  "final_url": "https://practice-mv-k.example/"
+ },
+ {
+  "name": "Practice MV-A",
+  "domain": "practice-mv-a.example",
+  "linkedin_url": null,
+  "size": "11-50",
+  "signals": [],
+  "score": 0,
+  "reachable": true,
+  "status": 200,
+  "load_s": 0.97,
+  "final_url": "https://www.practice-mv-a-live.example/"
+ },
+ {
+  "name": "Practice MV-C",
+  "domain": "practice-mv-c.example",
+  "linkedin_url": null,
+  "size": "2-10",
+  "signals": [],
+  "score": 0,
+  "reachable": true,
+  "status": 200,
+  "load_s": 0.77,
+  "final_url": "https://www.practice-mv-c.example/"
+ },
+ {
+  "name": "Practice MV-F",
+  "domain": "practice-mv-f.example",
+  "linkedin_url": null,
+  "size": "2-10",
+  "signals": [
+   "HTTP 403 to automated request - INCONCLUSIVE, verify in a browser"
+  ],
+  "score": 0,
+  "reachable": true,
+  "status": 403,
+  "load_s": 0.31,
+  "final_url": "https://practice-mv-f.example/",
+  "inconclusive": true
+ },
+ {
+  "name": "Practice MV-G",
+  "domain": "practice-mv-g.example",
+  "linkedin_url": null,
+  "size": "2-10",
+  "signals": [],
+  "score": 0,
+  "reachable": true,
+  "status": 200,
+  "load_s": 1.0,
+  "final_url": "https://www.practice-mv-g.example/"
+ },
+ {
+  "name": "Practice MV-I",
+  "domain": "practice-mv-i.example",
+  "linkedin_url": null,
+  "size": "",
+  "signals": [],
+  "score": 0,
+  "reachable": true,
+  "status": 200,
+  "load_s": 0.61,
+  "final_url": "https://practice-mv-i.example/"
+ },
+ {
+  "name": "Practice MV-J",
+  "domain": "practice-mv-j.example",
+  "linkedin_url": null,
+  "size": "2-10",
+  "signals": [],
+  "score": 0,
+  "reachable": true,
+  "status": 200,
+  "load_s": 0.46,
+  "final_url": "https://www.practice-mv-j.example/"
+ }
+]
