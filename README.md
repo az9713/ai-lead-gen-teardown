@@ -59,9 +59,9 @@ how to fix it *for free*. The pitch is one sentence, in the last paragraph.
 
 ### 1 — Practice A, Austin TX · ready to send
 
-**To:** `contact.golf@practice-a.example` (Contact Golf, General Dentist)
-**Source:** Clay people search → Clay "Work Email" enrichment routine
-**Signal:** verified in Chrome and by DNS lookup on 2026-07-30
+- **To:** `contact.golf@practice-a.example` — Contact Golf, General Dentist
+- **Source:** Clay people search → Clay "Work Email" enrichment routine
+- **Signal:** verified in Chrome and by DNS lookup on 2026-07-30
 
 > **Subject:** practice-a.example (without the www) doesn't load — quick heads up
 >
@@ -96,9 +96,10 @@ normal, working site.
 
 ### 2 — Practice B, Austin TX · needs a recipient first
 
-**To:** nobody yet. Clay's people search returned no one at `practice-b.example`,
-so a name has to come off their staff page or LinkedIn before this can go out.
-**Signal:** verified by serial timing, three consecutive runs
+- **To:** nobody yet — Clay's people search returned no one at
+  `practice-b.example`, so a name has to come off their staff page or LinkedIn
+  before this can go out
+- **Signal:** verified by serial timing, three consecutive runs
 
 > **Subject:** practice-b.example is taking 4–8 seconds to load
 >
