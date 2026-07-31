@@ -8,16 +8,27 @@ Everything here is what [`pipeline/audit.py`](pipeline/audit.py) actually does,
 not an idealised description of it. Practice labels are the anonymised ones
 described under [Redaction](README.md#redaction).
 
-It has been run twice, against two metropolitan areas, with the same scanner and
-the same thresholds:
+It has been run three times, against three metropolitan areas and two verticals,
+with the same scanner and the same thresholds:
 
 | Run | Area | Found | Flagged | Survived verification |
 |---|---|---:|---:|---:|
 | First — [`pipeline/`](pipeline/) | Austin, TX | 37 | 20 | 2 |
 | Second — [`pipeline-mountain-view/`](pipeline-mountain-view/) | Mid-Peninsula, CA | 12 | 6 | 1 |
+| Third — [`pipeline-phoenix/`](pipeline-phoenix/) | Phoenix / Scottsdale, AZ — **med spas** | 19 | 14 | **0** |
+| **Total** | | **68** | **40** | **3** |
 
-The second run is the more useful one for judging the rubric, because nothing was
-tuned between them. Where the two disagree is noted below.
+The later runs are the more useful ones for judging the rubric, because nothing
+was tuned between them. Where they disagree is noted below.
+
+**The third run is the one that tested the rubric hardest: it returned zero.** All
+14 of its flags failed verification, and two of them failed because the tooling
+itself was broken — including a verifier that called a host which returned nothing
+"SERVER-SIDE SLOW … safe to put in writing". Both are fixed and both are now
+pinned as tests. The full account is in
+[`MEDSPA-EXPERIMENT.md`](MEDSPA-EXPERIMENT.md).
+
+Across all three runs the scanner is wrong about **92%** of what it flags.
 
 ---
 
@@ -62,7 +73,8 @@ Then `audit.py` applies two more filters before anything is measured:
 > **The most consequential line in the whole rubric is that first filter.** A
 > business with no website at all cannot enter this funnel — it has no domain to
 > drop. That is the single highest-intent signal in the framework this project
-> replicates, and both runs so far have been structurally blind to it. See
+> replicates, and all three runs so far have been structurally blind to it — one of
+> the 40 raw Phoenix rows was exactly this, and was dropped silently. See
 > [What this rubric is missing](#what-this-rubric-is-missing).
 
 ## Layer 2 — The score

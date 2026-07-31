@@ -4,6 +4,13 @@
 into a terminal to the last file written — including the hour spent discovering
 that most of what it found was wrong.*
 
+> **This document covers the first run — dental practices in Austin.** The
+> pipeline was later run twice more: the mid-Peninsula in California, and then med
+> spas in Phoenix and Scottsdale. The third run found **zero** prospects and caught
+> two bugs in the tooling itself, one of which had been clearing a false
+> accusation as safe to send. That story is told separately, and it is the better
+> one: **[`MEDSPA-EXPERIMENT.md`](MEDSPA-EXPERIMENT.md)**.
+
 This is written for someone who has never done lead generation and finds the
 whole thing faintly mysterious: a stack of tools with names like Clay and
 Higgsfield, credits and enrichment routines and signals, and somewhere at the end

@@ -1,0 +1,225 @@
+{
+  "_comment": [
+    "How the media in this directory was made. Same convention as",
+    "dental-demo/assets/provenance.json: every prompt below is the exact string",
+    "sent to the API, and every id is the generation id it returned. Delivery",
+    "URLs are omitted - they carry an account identifier in the path.",
+    "",
+    "Build: a 2-scene scroll-world for a fictional Phoenix-area med spa, in the",
+    "style of github.com/oso95/scroll-world, architecture B (dive-in + aerial",
+    "connector). Architecture B is the diorama/miniature grammar: dive into a",
+    "scene, pull up and out over the table, fly to the next diorama.",
+    "",
+    "Scene order follows the customer's own path - arrive at reception, then the",
+    "treatment room - so the page ends on the outcome being sold rather than on",
+    "a desk."
+  ],
+  "service": "Higgsfield (https://higgsfield.ai), via MCP",
+  "run_date": "2026-07-30",
+  "account": {
+    "plan": "starter",
+    "credits_before": 61.78,
+    "credits_after": 57.78,
+    "charged": 4,
+    "note": "Two stills at 2 credits each, both first attempts, neither re-rolled."
+  },
+
+  "cost_calibration": {
+    "_comment": [
+      "Measured with get_cost preflights, which cost nothing. Recorded because",
+      "the scroll-world skill's own tier ordering does NOT hold on this plan:",
+      "it calls seedance_2_0_mini the cheap draft tier, but at 12.5 credits it",
+      "is more expensive here than kling3_0 at 10."
+    ],
+    "measured_on": "2026-07-30",
+    "plan": "starter",
+    "stills": { "nano_banana_pro (1k)": 2 },
+    "video_5s": {
+      "minimax_hailuo (6s, 768p)": 6,
+      "kling3_0_turbo": 7.5,
+      "kling3_0": 10,
+      "seedance_2_0_mini": 12.5,
+      "seedance_2_0": 22.5
+    },
+    "video_10s": { "kling3_0": 20 },
+    "end_image_support": {
+      "_comment": "Architecture B needs an end-image to build connectors. Confirmed against the model catalog, not assumed.",
+      "kling3_0": true,
+      "seedance_2_0": true,
+      "seedance_2_0_mini": true,
+      "kling3_0_turbo": false,
+      "minimax_hailuo": false
+    },
+    "chosen_model": "kling3_0",
+    "chosen_reason": "Cheapest model on this plan that accepts an end_image, which architecture B requires.",
+    "preflight_overestimates": {
+      "_comment": [
+        "get_cost is not the billed price. It quoted kling3_0 5s at 10 credits;",
+        "the actual charge was 7.5, confirmed twice - by the balance moving",
+        "57.78 -> 50.28 and by the transaction log line 'Kling v3.0 -7.5'.",
+        "",
+        "Treat get_cost as a ceiling for budgeting, never as the price. The",
+        "scroll-world skill's instruction to diff the balance before/after a",
+        "real generation is the only reliable measurement, and it is what",
+        "caught this."
+      ],
+      "kling3_0_5s": { "preflight": 10, "billed": 7.5 }
+    }
+  },
+
+  "style": {
+    "palette": "pale blush and sage green clay",
+    "surface": "light oak wooden table",
+    "lighting": "soft warm studio key, single direction",
+    "camera": "isometric, tilt-shift miniature falloff",
+    "texture": "visible thumbprints and tool marks in the clay"
+  },
+
+  "assets": [
+    {
+      "file": "stills/scene2-treatment-room.png",
+      "scene": 2,
+      "generation_id": "362f5714-ff02-477e-ba25-ad68813964ce",
+      "model_requested": "nano_banana_pro",
+      "model_used": "nano_banana_2",
+      "aspect_ratio": "16:9",
+      "output": "1376x768",
+      "resolution": "1k",
+      "resolution_note": "not requested; the API defaulted it and said so in an `adjustments` field",
+      "credits": 2,
+      "attempts": 1,
+      "generated_first": true,
+      "generated_first_note": "Rendered before the scene order was decided, so it is scene 2 despite being the first file made.",
+      "prompt": "Isometric claymation diorama of a modern med spa treatment room, stop-motion plasticine style, visible thumbprints and tool marks in the clay, handcrafted miniature set on a table, a clay treatment bed, small potted plants, warm soft studio lighting, tilt-shift miniature look, pale blush and sage green palette, clean empty space around the diorama, no text"
+    },
+    {
+      "file": "stills/scene1-reception.png",
+      "scene": 1,
+      "generation_id": "dc917ddb-9217-4b9f-a5af-2a7b44ae4c0d",
+      "model_requested": "nano_banana_pro",
+      "model_used": "nano_banana_2",
+      "aspect_ratio": "16:9",
+      "output": "1376x768",
+      "resolution": "1k",
+      "credits": 2,
+      "attempts": 1,
+      "reference_image": "362f5714-ff02-477e-ba25-ad68813964ce",
+      "reference_note": [
+        "Passed as medias[].role='image' rather than described in words. This is",
+        "what held the style: same table, same grain and edge position, same",
+        "palette, same key light and shadow direction, same isometric angle.",
+        "Architecture B's connector flies over both tables in one continuous",
+        "shot, so any palette or lighting drift between scenes would be visible.",
+        "",
+        "One accepted difference: the treatment room has a pink left wall and a",
+        "green right wall; reception has pink walls with a green wainscot band.",
+        "Reads as the same building, a different room."
+      ],
+      "prompt": "Isometric claymation diorama of a modern med spa reception and front desk, in exactly the same handcrafted clay style, same light oak wooden table, same pale blush and sage green palette and same soft warm lighting as the reference image. Stop-motion plasticine style, visible thumbprints and tool marks in the clay, a clay reception counter with a small tablet on it, a waiting bench with cushions, small potted plants, tilt-shift miniature look, clean empty space around the diorama, no text"
+    }
+  ],
+
+  "clips": [
+    {
+      "file": "clips/dive1.mp4",
+      "scene": 1,
+      "generation_id": "292b2a2f-ad4d-4a75-a688-6c20663f2c41",
+      "model": "kling3_0",
+      "params": { "duration": 5, "mode": "std", "sound": "off", "cfg_scale": 0.5 },
+      "sound_note": "Kling defaults sound ON; passed off explicitly.",
+      "start_image": "dc917ddb-9217-4b9f-a5af-2a7b44ae4c0d",
+      "output": "1284x716, 24fps, 121 frames, 5.04s",
+      "output_note": "Not 1280x720. Encode what ffprobe reports; never upscale.",
+      "credits": 7.5,
+      "attempts": 1,
+      "frame_lock": {
+        "measured": "PSNR 39.51 dB (r 39.88 / g 39.78 / b 38.94) against the start still, rescaled to 1284x716",
+        "benchmark": "The scroll-world skill treats 33 dB as a verified frame-lock, so this passes comfortably.",
+        "command": "ffmpeg -i frames/dive1_first.png -i stills/scene1-reception.png -lavfi \"[1:v]scale=1284:716[ref];[0:v][ref]psnr=stats_file=-\" -f null -"
+      },
+      "ending": "Clean. Stable framing, no artefact, reads as a gentle forward push - a valid handoff into the connector.",
+      "honest_caveat": "The move is a modest dolly-in, not the descent between the walls the prompt asked for. The camera stays outside the room looking in. Accepted rather than re-rolled: the gate tests whether the ending is clean, and it is; the skill also warns that more expressive moves raise the odds of ending in a state that ISN'T a clean forward drift.",
+      "prompt": "Camera flies slowly forward and descends into the miniature clay reception room, passing over the edge of the wooden table and down between the clay walls toward the reception counter. Smooth continuous stop-motion camera move, no cuts. In the final second the camera settles into a gentle steady forward drift."
+    },
+    {
+      "file": "clips/connector.mp4",
+      "role": "connector",
+      "generation_id": "7d8ad388-4b3b-450b-9aa8-ea0f893db2f0",
+      "model": "kling3_0",
+      "params": { "duration": 5, "mode": "std", "sound": "off", "cfg_scale": 0.5 },
+      "start_image": "28803e3e-824e-49cf-a2fc-a3cf7358d4c7",
+      "start_image_note": "frames/dive1_last.png, uploaded via media_upload + media_confirm. A job_id cannot be used here - that would supply the video's FIRST frame, and a connector must start on the previous clip's LAST frame.",
+      "end_image": "362f5714-ff02-477e-ba25-ad68813964ce",
+      "output": "1284x716, 24fps, 121 frames, 5.04s",
+      "credits": 7.5,
+      "attempts": 1,
+      "see": "connector_behaviour below - it re-sculpts in place rather than flying to a second diorama",
+      "prompt": "Camera pulls up and back, rising away from the miniature clay reception diorama until the whole wooden table is visible below, then glides sideways across the table and begins descending toward a second clay diorama of a treatment room. Smooth continuous aerial camera move, no cuts, stop-motion miniature world."
+    },
+    {
+      "file": "clips/dive2.mp4",
+      "scene": 2,
+      "generation_id": "b00aee58-c211-4c6d-9120-c0cd71ef0fbd",
+      "model": "kling3_0",
+      "params": { "duration": 5, "mode": "std", "sound": "off", "cfg_scale": 0.5 },
+      "start_image": "362f5714-ff02-477e-ba25-ad68813964ce",
+      "output": "1284x716, 24fps, 121 frames, 5.04s",
+      "credits": 7.5,
+      "attempts": 1,
+      "rendered_note": "Rendered in parallel with the connector, not after it. Both are locked to the same treatment-room still - the connector ends on it, dive2 starts from it - so neither depends on the other's result.",
+      "prompt": "Camera flies slowly forward and descends into the miniature clay treatment room, moving down between the clay walls toward the treatment bed. Smooth continuous stop-motion camera move, no cuts. In the final second the camera settles into a gentle steady forward drift."
+    }
+  ],
+
+  "chain": {
+    "_comment": [
+      "All four boundaries measured, not eyeballed. The scroll-world skill calls",
+      "a broken seam 'the single most common failure'; 33 dB is its verified",
+      "frame-lock benchmark. Every boundary here clears it.",
+      "",
+      "psnr(){ ffmpeg -i \"$1\" -i \"$2\" -lavfi \"[1:v]scale=1284:716[r];[0:v][r]psnr\" -f null - ; }"
+    ],
+    "seams": {
+      "dive1.last -> connector.first": 39.99,
+      "connector.last -> dive2.first": 40.24,
+      "connector.last vs treatment-room still": 37.78,
+      "dive2.first vs treatment-room still": 39.24
+    },
+    "stitched": "scroll-world-preview.mp4 - 15.125s, 1284x716, 24fps, libx264 crf 18, no audio",
+    "concat_note": "ffmpeg concat demuxer over concat.txt; all three clips share codec and dimensions so no re-scale was needed."
+  },
+
+  "connector_behaviour": {
+    "_comment": [
+      "IMPORTANT, and not what architecture B specifies. The connector does not",
+      "pull up and fly across to a second diorama. At frame 60 the camera does",
+      "rise and pull back until the whole table is visible - that part worked -",
+      "but from there the room RE-SCULPTS IN PLACE: the waiting bench becomes a",
+      "cabinet, the reception counter dissolves and reforms as the treatment",
+      "bed, the plants migrate.",
+      "",
+      "Why it could not have done otherwise: both stills place their diorama at",
+      "the same position on the same table. The end_image dictates the",
+      "destination framing, so there was nowhere to fly TO. An aerial hop needs",
+      "the second diorama rendered offset on the table, or on a visibly",
+      "different table.",
+      "",
+      "Kept rather than re-rolled. Clay re-moulding itself is the medium's",
+      "native magic and reads as intentional here, where in a photoreal world",
+      "it would read as a morph artefact. It is also seamless by measurement.",
+      "",
+      "Cost of doing the literal hop instead: 1 re-generated treatment-room",
+      "still with the diorama offset (2) + connector re-roll (7.5) + dive2",
+      "re-roll (7.5, because its start image would change) = 17 credits.",
+      "",
+      "Consequence for the page copy: this is one room becoming another, not a",
+      "tour of separate locations. Do not write scroll copy that promises a",
+      "journey between places."
+    ]
+  },
+
+  "not_done_yet": [
+    "The fictional-business banner. This is a public sales asset opened from a cold email; without the banner it reads as a client being claimed. Same rule as dental-demo/index.html, and it is non-negotiable.",
+    "A fictional med spa name, phone and address. 'Brooklyn Smiles' does not transfer."
+  ]
+}

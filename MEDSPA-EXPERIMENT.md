@@ -435,6 +435,7 @@ Everything in this repository points at that gap. None of it has been built yet.
 | [`pipeline-phoenix/audit.py`](pipeline-phoenix/audit.py) | The scanner as it ran, with the fixed copyright check |
 | [`verify.py`](verify.py) | The verifier, with the `NO RESPONSE` fix and its self-check |
 | [`medspa-demo/`](medspa-demo/) | The claymation scroll-world demo site |
+| [`medspa-demo/provenance.json`](medspa-demo/provenance.json) | Every prompt, model, generation id, credit charge and PSNR figure for the media |
 
 All prospect names and domains in the published files are `.example` aliases. The
 unredacted originals are gitignored and stay on disk.

@@ -11,14 +11,28 @@ the workflow demonstrated in [this video by Samin
 Yasar](https://www.youtube.com/watch?v=1ofs469cmDE). Everything was built by
 Claude Code (Fable 5 / Opus 5) driving the tools listed below.
 
-**The headline result is the failure rate, not the success rate.** The automated
-scanner produced 20 prospects. After checking every claim by hand, **2 survived**
-and 18 were artifacts of my own tooling — my scanner being wrong about other
-people's businesses. If you take one thing from this repo, take
-[`pipeline/VERIFICATION.md`](pipeline/VERIFICATION.md).
+**The headline result is the failure rate, not the success rate.** It has now been
+run three times — dental practices in Austin, dental practices on the
+mid-Peninsula, and med spas in Phoenix. Across all three, the scanner produced
+**40 prospects** and, after every claim was checked by hand, **3 survived**. The
+other 37 were artifacts of my own tooling — my scanner being wrong about other
+people's businesses.
 
-**Nothing was ever sent.** The two emails are drafts. No mailbox, no sending
-domain, no campaign was configured at any point.
+| Run | Area | Found | Flagged | Survived |
+|---|---|---:|---:|---:|
+| [`pipeline/`](pipeline/) | Austin, TX — dental | 37 | 20 | 2 |
+| [`pipeline-mountain-view/`](pipeline-mountain-view/) | Mid-Peninsula, CA — dental | 12 | 6 | 1 |
+| [`pipeline-phoenix/`](pipeline-phoenix/) | Phoenix / Scottsdale, AZ — med spas | 19 | 14 | **0** |
+| **Total** | | **68** | **40** | **3** |
+
+That is a **92% false-positive rate**, stable across two verticals and three
+metros. If you take one thing from this repo, take a verification log —
+[`pipeline/VERIFICATION.md`](pipeline/VERIFICATION.md) or
+[`pipeline-phoenix/VERIFICATION.md`](pipeline-phoenix/VERIFICATION.md).
+
+**Nothing was ever sent, in any run.** The three emails are drafts, and still
+carry `[YOUR NAME]` placeholders. No mailbox, no sending domain, no campaign was
+configured at any point.
 
 ---
 
