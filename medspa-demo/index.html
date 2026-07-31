@@ -1,0 +1,101 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+  <title>Cholla &amp; Clay Aesthetics — a scroll-world demo</title>
+  <meta name="description" content="A demonstration website for a fictional med spa, built as a hand-sculpted clay diorama you scroll through." />
+  <meta name="robots" content="noindex, nofollow" />
+  <style>
+    /* Palette sampled from the rendered clay scenes: warm plaster ground, terracotta
+       and sage props. Keeping --sw-bg equal to the scene background is what makes the
+       fixed sky read as one continuous room behind the video. */
+    :root, .sw-root {
+      --sw-bg: #EFE3D2;
+      --sw-ink: #33261f;
+      --sw-ink-soft: #7a6656;
+      --sw-accent: #C2714B;
+    }
+
+    /* The banner is the one non-negotiable element on this page. It has to be
+       legible before any scrolling happens and it must never scroll away, because
+       the whole point is that nobody can mistake this for a real clinic's site.
+       The engine's own fixed furniture tops out at z-index 60. */
+    .demo-banner {
+      position: fixed; top: 0; left: 0; right: 0; z-index: 100;
+      background: #F5B301; color: #241a06;
+      font: 500 clamp(.72rem, 1.6vw, .84rem)/1.45 ui-sans-serif, system-ui, -apple-system, "Segoe UI", sans-serif;
+      text-align: center; padding: 9px clamp(12px, 4vw, 40px);
+      box-shadow: 0 1px 0 rgba(0,0,0,.18);
+    }
+    .demo-banner strong { font-weight: 700; }
+
+    /* Push the engine's own top bar clear of the banner. Loaded after the engine
+       injects its stylesheet, so specificity alone would not win. */
+    .sw-topbar { padding-top: calc(clamp(14px, 2.4vw, 26px) + 42px) !important; }
+    .sw-scrollbar { top: 42px !important; }
+  </style>
+</head>
+<body>
+  <div class="demo-banner">
+    <strong>Demonstration site.</strong> Cholla &amp; Clay Aesthetics is a fictional
+    business. The name, phone number and address are invented, and nothing here is
+    affiliated with any real clinic.
+  </div>
+
+  <div id="top"></div>
+  <div id="world"></div>
+
+  <script src="scrub-engine.js"></script>
+  <script>
+    mountScrollWorld(document.getElementById('world'), {
+      brand: { name: 'Cholla & Clay', href: '#top' },
+      cta: { label: 'Book a consultation', href: '#finale' },
+      hint: 'scroll to step inside',
+      diveScroll: 1.3,
+      connScroll: 0.9,
+      sections: [
+        {
+          id: 'reception',
+          label: 'Reception',
+          still: 'assets/scene1-reception.png',
+          clip: 'assets/vid/dive1.mp4',
+          accent: '#C2714B',
+          eyebrow: 'Scottsdale, Arizona',
+          title: 'Everything here was sculpted by hand.',
+          body: 'Including the room you are looking at. Scroll, and the clay opens up.',
+          tags: ['Injectables', 'Laser & skin', 'Consultations'],
+        },
+        {
+          id: 'finale',
+          label: 'The Treatment Room',
+          still: 'assets/scene2-treatment-room.png',
+          clip: 'assets/vid/dive2.mp4',
+          accent: '#8C9B7A',
+          eyebrow: 'Where the work happens',
+          title: 'The same care, at the table.',
+          body: 'Unhurried appointments, one patient at a time, by practitioners who explain what they are doing and why. 1200 N Example Way, Suite 210, Scottsdale AZ 85251 — an invented address for an invented clinic.',
+          tags: [],
+          cta: {
+            primary: { label: 'Book a consultation', href: 'tel:+16025550142' },
+            secondary: { label: '(602) 555-0142', href: 'tel:+16025550142' },
+          },
+        },
+      ],
+      // One connector per gap between scenes. This clip re-sculpts the room in
+      // place rather than travelling to a second location - see provenance.json,
+      // `connector_behaviour`. The copy above is written to match: it promises a
+      // change of state, never a journey between places.
+      connectors: ['assets/vid/conn1.mp4'],
+    });
+  </script>
+
+
+  <noscript>
+    <p style="padding:80px 24px;font:16px/1.6 system-ui,sans-serif;color:#33261f;">
+      This demonstration needs JavaScript to scrub the video as you scroll.
+      Cholla &amp; Clay Aesthetics is a fictional business used to show the format.
+    </p>
+  </noscript>
+</body>
+</html>

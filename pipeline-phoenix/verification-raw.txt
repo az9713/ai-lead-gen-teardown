@@ -1,0 +1,57 @@
+# serial re-check, 3 runs each, 5s apart
+# recorded 2026-07-30T21:46:44 local
+# curl -w format: http_code=%{http_code} namelookup=%{time_namelookup} connect=%{time_connect} appconnect=%{time_appconnect} starttransfer=%{time_starttransfer} total=%{time_total} size=%{size_download} url=%{url_effective}
+
+## practice-ao.example
+run1: http_code=000 namelookup=0.015176 connect=0.000000 appconnect=0.000000 starttransfer=21.251336 total=21.251339 size=0 url=https://practice-ao.example/
+run2: http_code=000 namelookup=0.012158 connect=0.000000 appconnect=0.000000 starttransfer=21.270274 total=21.270277 size=0 url=https://practice-ao.example/
+run3: http_code=000 namelookup=0.018509 connect=0.000000 appconnect=0.000000 starttransfer=21.269943 total=21.269946 size=0 url=https://practice-ao.example/
+verdict: SERVER-SIDE SLOW - TTFB 21.25-21.27s with connect under 0.00s; safe to put in writing
+
+## practice-aw.example
+run1: http_code=200 namelookup=0.096858 connect=0.221119 appconnect=0.278872 starttransfer=0.715881 total=0.827403 size=273861 url=https://www.practice-aw.example/
+run2: http_code=200 namelookup=0.096054 connect=0.467763 appconnect=1.187996 starttransfer=1.542466 total=1.873526 size=273861 url=https://www.practice-aw.example/
+run3: http_code=200 namelookup=0.056982 connect=0.188044 appconnect=0.263114 starttransfer=0.574732 total=0.683847 size=273861 url=https://www.practice-aw.example/
+verdict: NOT SLOW - fastest run 0.57s; do not email about speed
+
+## practice-aq.example
+run1: http_code=200 namelookup=0.019622 connect=0.084172 appconnect=0.168603 starttransfer=1.614811 total=1.790935 size=479033 url=https://practice-aq.example/
+run2: http_code=200 namelookup=0.145681 connect=0.093661 appconnect=0.152337 starttransfer=0.380502 total=0.575754 size=478813 url=https://practice-aq.example/
+run3: http_code=200 namelookup=0.014566 connect=0.046934 appconnect=0.117401 starttransfer=0.328358 total=0.487072 size=478813 url=https://practice-aq.example/
+verdict: NOT SLOW - fastest run 0.33s; do not email about speed
+
+## practice-ay.example
+run1: http_code=200 namelookup=0.024224 connect=0.132197 appconnect=0.268001 starttransfer=0.348377 total=0.689340 size=648354 url=https://www.practice-ay.example/
+run2: http_code=200 namelookup=0.041362 connect=0.119253 appconnect=0.292409 starttransfer=0.389860 total=0.623191 size=648354 url=https://www.practice-ay.example/
+run3: http_code=200 namelookup=0.036184 connect=0.131558 appconnect=0.247285 starttransfer=0.354047 total=0.555049 size=648354 url=https://www.practice-ay.example/
+verdict: NOT SLOW - fastest run 0.35s; do not email about speed
+
+## practice-al.example
+run1: http_code=200 namelookup=0.102595 connect=0.223680 appconnect=0.271532 starttransfer=1.349989 total=1.411867 size=116854 url=https://www.practice-al.example/
+run2: http_code=200 namelookup=0.050492 connect=0.160024 appconnect=0.262075 starttransfer=1.118780 total=1.198690 size=116854 url=https://www.practice-al.example/
+run3: http_code=200 namelookup=0.030530 connect=0.159347 appconnect=0.255204 starttransfer=0.920378 total=0.975830 size=116854 url=https://www.practice-al.example/
+verdict: NOT SLOW - fastest run 0.92s; do not email about speed
+
+## practice-ar.example
+run1: http_code=200 namelookup=0.025177 connect=0.176307 appconnect=0.341920 starttransfer=0.499375 total=0.689562 size=155208 url=https://www.practice-ar.example/
+run2: http_code=200 namelookup=0.018647 connect=0.133564 appconnect=0.288461 starttransfer=0.450963 total=0.633065 size=155208 url=https://www.practice-ar.example/
+run3: http_code=200 namelookup=0.030231 connect=0.140158 appconnect=0.298909 starttransfer=0.442139 total=0.622095 size=155208 url=https://www.practice-ar.example/
+verdict: NOT SLOW - fastest run 0.44s; do not email about speed
+
+## practice-az.example
+run1: http_code=200 namelookup=0.014977 connect=0.181514 appconnect=0.525085 starttransfer=0.749882 total=1.234243 size=116272 url=https://practice-az.example/
+run2: http_code=200 namelookup=0.021936 connect=0.179778 appconnect=0.897865 starttransfer=1.096952 total=1.767281 size=116272 url=https://practice-az.example/
+run3: http_code=200 namelookup=0.023818 connect=0.168387 appconnect=0.504932 starttransfer=0.695020 total=1.178625 size=116272 url=https://practice-az.example/
+verdict: NOT SLOW - fastest run 0.70s; do not email about speed
+
+## practice-aj.example
+run1: http_code=200 namelookup=0.136637 connect=0.227641 appconnect=0.384331 starttransfer=0.629395 total=0.740607 size=136567 url=https://www.practice-aj.example/
+run2: http_code=200 namelookup=0.027929 connect=0.168752 appconnect=0.348614 starttransfer=0.565508 total=0.680062 size=136567 url=https://www.practice-aj.example/
+run3: http_code=200 namelookup=0.032197 connect=0.166277 appconnect=0.323635 starttransfer=0.569248 total=0.684445 size=136567 url=https://www.practice-aj.example/
+verdict: NOT SLOW - fastest run 0.57s; do not email about speed
+
+## practice-au.example
+run1: http_code=200 namelookup=0.023879 connect=0.161144 appconnect=0.366705 starttransfer=0.560742 total=1.092288 size=519191 url=https://www.practice-au.example/
+run2: http_code=200 namelookup=0.028502 connect=0.174912 appconnect=0.382255 starttransfer=0.551955 total=1.298760 size=519191 url=https://www.practice-au.example/
+run3: http_code=200 namelookup=0.025165 connect=0.165875 appconnect=0.392889 starttransfer=0.568279 total=0.971654 size=519191 url=https://www.practice-au.example/
+verdict: NOT SLOW - fastest run 0.55s; do not email about speed

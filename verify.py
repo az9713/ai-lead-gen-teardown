@@ -66,6 +66,24 @@ def verdict(rows):
     stayed low across every run. One slow reading out of three is the parallel
     sweep's own noise, which is the failure this whole script exists to catch.
     """
+    # A fetch that never got a response is not a slow-server measurement. curl
+    # reports connect=0.000000 when the TCP connect itself times out, which the
+    # low-connect test below would read as "connected instantly, server thought
+    # for 21s" - the single most dangerous misreading in this stack, because it
+    # ends in "safe to put in writing" about a site that returned nothing.
+    # Caught on spectrumdermatology.com: http_code=000, size=0, TTFB 21.25s.
+    codes = [r.get("http_code", "000") for r in rows]
+    if any(c in ("000", "0", "") for c in codes):
+        return (f"NO RESPONSE - codes {'/'.join(codes)}; the connection never "
+                f"completed, so these timings are not a speed measurement. "
+                f"Check the host in a real browser before claiming anything.")
+
+    # The rubric's rule: a firewall blocking a script is not a broken website.
+    blocked = [c for c in codes if c in ("401", "403", "429")]
+    if blocked:
+        return (f"INCONCLUSIVE - HTTP {'/'.join(codes)} to an automated request; "
+                f"verify in a browser, never email about this")
+
     ttfb, conn = [], []
     for r in rows:
         try:
@@ -105,31 +123,40 @@ def check(domains, out_path):
 
 def self_check():
     """No network. Proves the parser and every branch of the verdict."""
-    slow = [{"starttransfer": "5.40", "connect": "0.14"},
-            {"starttransfer": "5.30", "connect": "0.19"},
-            {"starttransfer": "8.48", "connect": "0.13"}]
+    ok = lambda t, c: {"http_code": "200", "starttransfer": t, "connect": c}
+
+    slow = [ok("5.40", "0.14"), ok("5.30", "0.19"), ok("8.48", "0.13")]
     assert verdict(slow).startswith("SERVER-SIDE SLOW"), verdict(slow)
 
     # The second run's top-ranked prospect: 3.3s under parallel load, fine
     # serially. This is the case the script exists to stop.
-    phantom = [{"starttransfer": "0.52", "connect": "0.11"},
-               {"starttransfer": "0.83", "connect": "0.12"},
-               {"starttransfer": "0.52", "connect": "0.11"}]
+    phantom = [ok("0.52", "0.11"), ok("0.83", "0.12"), ok("0.52", "0.11")]
     assert verdict(phantom).startswith("NOT SLOW"), verdict(phantom)
 
-    network = [{"starttransfer": "3.10", "connect": "2.90"},
-               {"starttransfer": "3.40", "connect": "3.10"},
-               {"starttransfer": "3.20", "connect": "3.00"}]
+    network = [ok("3.10", "2.90"), ok("3.40", "3.10"), ok("3.20", "3.00")]
     assert verdict(network).startswith("NETWORK"), verdict(network)
 
-    assert verdict([{"starttransfer": "x", "connect": "1"}]).startswith("INCONCLUSIVE")
-    assert verdict([{}]).startswith("INCONCLUSIVE")
+    # spectrumdermatology.com, 2026-07-30: the TCP connect timed out, so curl
+    # reported connect=0 and a 21s "TTFB" with no bytes and no status code.
+    # Before this branch existed the script called that SERVER-SIDE SLOW and
+    # said it was safe to put in writing.
+    dead = [{"http_code": "000", "starttransfer": "21.25", "connect": "0.000000"},
+            {"http_code": "000", "starttransfer": "21.27", "connect": "0.000000"},
+            {"http_code": "000", "starttransfer": "21.27", "connect": "0.000000"}]
+    assert verdict(dead).startswith("NO RESPONSE"), verdict(dead)
+
+    # A WAF blocking a spoofed browser is not the prospect's defect.
+    waf = [{"http_code": "429", "starttransfer": "0.22", "connect": "0.09"}] * 3
+    assert verdict(waf).startswith("INCONCLUSIVE"), verdict(waf)
+
+    assert verdict([ok("x", "1")]).startswith("INCONCLUSIVE")
+    assert verdict([{}]).startswith("NO RESPONSE")
 
     p = parse("http_code=200 connect=0.14 url=https://a.example/")
     assert p["http_code"] == "200" and p["url"] == "https://a.example/", p
     assert parse("curl_error=could not resolve host") == {
         "curl_error": "could not resolve host"}
-    print("self-check OK - parser and all four verdicts")
+    print("self-check OK - parser and all six verdicts")
 
 
 def main():

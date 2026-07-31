@@ -1,0 +1,245 @@
+[
+ {
+  "name": "Practice AL",
+  "domain": "practice-al.example",
+  "linkedin_url": null,
+  "size": "11-50",
+  "signals": [
+   "sluggish first load: 1.6s"
+  ],
+  "score": 12,
+  "reachable": true,
+  "status": 200,
+  "load_s": 1.56,
+  "final_url": "https://www.practice-al.example/"
+ },
+ {
+  "name": "Practice AQ",
+  "domain": "practice-aq.example",
+  "linkedin_url": null,
+  "size": "2-10",
+  "signals": [
+   "sluggish first load: 1.5s"
+  ],
+  "score": 12,
+  "reachable": true,
+  "status": 200,
+  "load_s": 1.51,
+  "final_url": "https://practice-aq.example/"
+ },
+ {
+  "name": "Practice AJ",
+  "domain": "practice-aj.example",
+  "linkedin_url": null,
+  "size": "11-50",
+  "signals": [],
+  "score": 0,
+  "reachable": true,
+  "status": 200,
+  "load_s": 0.81,
+  "final_url": "https://www.practice-aj.example/",
+  "needs_render_check": [
+   "no booking link in served HTML"
+  ]
+ },
+ {
+  "name": "Practice AK",
+  "domain": "practice-ak.example",
+  "linkedin_url": null,
+  "size": "11-50",
+  "signals": [],
+  "score": 0,
+  "reachable": true,
+  "status": 200,
+  "load_s": 0.65,
+  "final_url": "https://www.practice-ak.example/"
+ },
+ {
+  "name": "Practice AM",
+  "domain": "practice-am.example",
+  "linkedin_url": null,
+  "size": "2-10",
+  "signals": [],
+  "score": 0,
+  "reachable": true,
+  "status": 200,
+  "load_s": 1.08,
+  "final_url": "https://practice-am.example/"
+ },
+ {
+  "name": "Practice AN",
+  "domain": "practice-an.example",
+  "linkedin_url": null,
+  "size": "11-50",
+  "signals": [],
+  "score": 0,
+  "reachable": true,
+  "status": 200,
+  "load_s": 0.47,
+  "final_url": "https://practice-an.example/"
+ },
+ {
+  "name": "Practice AO",
+  "domain": "practice-ao.example",
+  "score": 0,
+  "signals": [
+   "NOT A PROSPECT - the practice was absorbed into a multi-state dermatology group. Port 443 accepts no connections (TCP connect times out at ~21s, in curl and in real Chrome alike); port 80 serves a 301 to a landing page on the acquirer's site, which renders 'Uh oh, page not found'. The broken redirect is real, but the prospect is now a location of a chain, not an independent local practice, and the acquirer's site 429s every automated request. Checked in Chrome 2026-07-30."
+  ],
+  "disqualified": true,
+  "linkedin_url": null,
+  "size": "11-50"
+ },
+ {
+  "name": "Practice AP",
+  "domain": "practice-ap.example",
+  "linkedin_url": null,
+  "size": "11-50",
+  "signals": [],
+  "score": 0,
+  "reachable": true,
+  "status": 200,
+  "load_s": 0.82,
+  "final_url": "https://practice-ap.example/"
+ },
+ {
+  "name": "Practice AR",
+  "domain": "practice-ar.example",
+  "linkedin_url": null,
+  "size": "2-10",
+  "signals": [],
+  "score": 0,
+  "reachable": true,
+  "status": 200,
+  "load_s": 0.8,
+  "final_url": "https://www.practice-ar.example/",
+  "needs_render_check": [
+   "footer copyright reads 2023"
+  ]
+ },
+ {
+  "name": "Practice AS",
+  "domain": "practice-as.example",
+  "linkedin_url": null,
+  "size": "11-50",
+  "signals": [],
+  "score": 0,
+  "reachable": true,
+  "status": 200,
+  "load_s": 0.74,
+  "final_url": "https://www.practice-as.example/"
+ },
+ {
+  "name": "Practice AT",
+  "domain": "practice-at.example",
+  "linkedin_url": null,
+  "size": "2-10",
+  "signals": [],
+  "score": 0,
+  "reachable": true,
+  "status": 200,
+  "load_s": 0.58,
+  "final_url": "https://practice-at.example/"
+ },
+ {
+  "name": "Practice AU",
+  "domain": "practice-au.example",
+  "linkedin_url": null,
+  "size": "2-10",
+  "signals": [],
+  "score": 0,
+  "reachable": true,
+  "status": 200,
+  "load_s": 1.01,
+  "final_url": "https://www.practice-au.example/"
+ },
+ {
+  "name": "Practice AV",
+  "domain": "practice-av.example",
+  "linkedin_url": null,
+  "size": "11-50",
+  "signals": [
+   "HTTP 403 to automated request - INCONCLUSIVE, verify in a browser"
+  ],
+  "score": 0,
+  "reachable": true,
+  "status": 403,
+  "load_s": 0.34,
+  "final_url": "https://practice-av.example/",
+  "inconclusive": true
+ },
+ {
+  "name": "Practice AW",
+  "domain": "practice-aw.example",
+  "linkedin_url": null,
+  "size": "11-50",
+  "signals": [],
+  "score": 0,
+  "reachable": true,
+  "status": 200,
+  "load_s": 0.82,
+  "final_url": "https://www.practice-aw.example/"
+ },
+ {
+  "name": "Practice AX",
+  "domain": "practice-ax.example",
+  "linkedin_url": null,
+  "size": "11-50",
+  "signals": [],
+  "score": 0,
+  "reachable": true,
+  "status": 200,
+  "load_s": 0.49,
+  "final_url": "https://practice-ax.example/"
+ },
+ {
+  "name": "Practice AY",
+  "domain": "practice-ay.example",
+  "linkedin_url": null,
+  "size": "11-50",
+  "signals": [],
+  "score": 0,
+  "reachable": true,
+  "status": 200,
+  "load_s": 0.71,
+  "final_url": "https://www.practice-ay.example/"
+ },
+ {
+  "name": "Practice AZ",
+  "domain": "practice-az.example",
+  "linkedin_url": null,
+  "size": "2-10",
+  "signals": [],
+  "score": 0,
+  "reachable": true,
+  "status": 200,
+  "load_s": 1.34,
+  "final_url": "https://practice-az.example/",
+  "needs_render_check": [
+   "footer copyright reads 2023"
+  ]
+ },
+ {
+  "name": "Practice BA",
+  "domain": "practice-ba.example",
+  "linkedin_url": null,
+  "size": "2-10",
+  "signals": [],
+  "score": 0,
+  "reachable": true,
+  "status": 200,
+  "load_s": 0.38,
+  "final_url": "https://practice-ba.example/"
+ },
+ {
+  "name": "Practice BB",
+  "domain": "practice-bb.example",
+  "linkedin_url": null,
+  "size": "2-10",
+  "signals": [],
+  "score": 0,
+  "reachable": true,
+  "status": 200,
+  "load_s": 0.51,
+  "final_url": "https://www.practice-bb.example/"
+ }
+]

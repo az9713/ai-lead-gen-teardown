@@ -36,11 +36,36 @@ about four minutes. **Click the image to open it.**
 Both serve the same file. The amber banner across the top is deliberate and
 non-negotiable — see [the last section](#two-things-worth-knowing-before-you-copy-this).
 
+## The claymation scroll-world, live
+
+The third run swapped vertical, city and format: **med spas in Phoenix and
+Scottsdale**, with the demo site built as a stop-motion clay diorama you scroll
+*into*. Scroll position scrubs a video timeline — you land on the reception, the
+camera dives in, the room re-sculpts itself into a treatment room, and the last
+scene carries the call to action. Two scenes, one connector, 15 seconds of
+generated footage, no build step. **Click the image to open it.**
+
+[![The Cholla & Clay Aesthetics demo: an amber banner declaring the clinic fictional, above a hand-sculpted clay reception desk, waiting bench and potted plants rendered as a miniature diorama](medspa-demo/preview.jpg)](https://az9713.github.io/ai-lead-gen-teardown/medspa-demo/)
+
+- **GitHub Pages** — https://az9713.github.io/ai-lead-gen-teardown/medspa-demo/
+
+Cholla & Clay Aesthetics is **fictional**: the name was checked against real
+businesses in the metro, the phone number is in the 555-01xx block reserved for
+fiction, and the street address is invented. The amber banner says so and never
+scrolls away. The clips keep their **C2PA content credentials** marking them as
+AI-generated.
+
+That run found **no prospects at all** — and in the process caught the verifier
+clearing a false accusation as safe to send. The whole story, including what the
+media cost and why the connector re-sculpts the room instead of flying to a second
+one, is in **[`MEDSPA-EXPERIMENT.md`](MEDSPA-EXPERIMENT.md)**.
+
 ## Start here
 
 | If you want… | Read |
 |---|---|
 | The whole story, written for someone new to lead gen | **[`JOURNEY.md`](JOURNEY.md)** |
+| The third run end to end — new vertical, zero prospects, two tooling bugs found | **[`MEDSPA-EXPERIMENT.md`](MEDSPA-EXPERIMENT.md)** |
 | The finished deliverable — the two cold emails | [`pipeline/draft-emails.md`](pipeline/draft-emails.md) |
 | The most useful file here — why 18 of 20 leads were fake | [`pipeline/VERIFICATION.md`](pipeline/VERIFICATION.md) |
 | How a business becomes a lead — the scoring and the gates | **[`RUBRIC.md`](RUBRIC.md)** |

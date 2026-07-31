@@ -47,3 +47,13 @@ mountain-view/
 
 # The claymation ad - not reviewed/approved for publication yet.
 claymation-ad/
+
+# The Phoenix med spa scroll-world build. Same rule as claymation-ad/: generated
+# media stays local until it has been reviewed and the fictional-business banner
+# is in place. provenance.json records how each file was made.
+medspa-world/
+
+# Originals of the third run (Phoenix/Scottsdale med spas). Same rule as
+# mountain-view/: the real businesses stay here and only the redactor's output
+# is ever published.
+phoenix/
